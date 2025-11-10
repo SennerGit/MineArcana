@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "item": "minecraft:slime_ball",
+      "value": 2
+    },
+    {
+      "item": "minecraft:spider_eye",
+      "value": 3
+    },
+    {
+      "item": "minecraft:fermented_spider_eye",
+      "value": 4
+    },
+    {
+      "item": "minecraft:warped_fungus",
+      "value": 3
+    },
+    {
+      "item": "minecraft:poisonous_potato",
+      "value": 2
+    }
+  ]
+}

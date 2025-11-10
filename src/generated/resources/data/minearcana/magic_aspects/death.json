@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "item": "minecraft:bone",
+      "value": 1
+    },
+    {
+      "item": "minecraft:rotten_flesh",
+      "value": 1
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull",
+      "value": 8
+    },
+    {
+      "item": "minecraft:soul_sand",
+      "value": 2
+    },
+    {
+      "item": "minecraft:wither_rose",
+      "value": 5
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "values": [
+    "minecraft:iron_ingot",
+    "minecraft:emerald",
+    "minecraft:clay_ball",
+    "minecraft:dirt",
+    "minecraft:redstone",
+    "minecraft:piston",
+    "minecraft:repeater",
+    "minecraft:hopper",
+    "minecraft:iron_block"
+  ]
+}

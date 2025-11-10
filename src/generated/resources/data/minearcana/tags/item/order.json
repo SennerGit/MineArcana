@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:golden_apple",
+    "minecraft:totem_of_undying",
+    "minecraft:glowstone_dust",
+    "minecraft:enchanted_golden_apple",
+    "minecraft:gold_block",
+    "minecraft:redstone",
+    "minecraft:piston",
+    "minecraft:repeater",
+    "minecraft:hopper",
+    "minecraft:iron_block",
+    "minecraft:ice",
+    "minecraft:blue_ice",
+    "minecraft:snowball",
+    "minecraft:packed_ice",
+    "minecraft:powder_snow_bucket"
+  ]
+}

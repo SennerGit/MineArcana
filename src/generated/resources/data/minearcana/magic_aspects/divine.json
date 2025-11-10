@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "item": "minecraft:golden_apple",
+      "value": 5
+    },
+    {
+      "item": "minecraft:totem_of_undying",
+      "value": 10
+    },
+    {
+      "item": "minecraft:glowstone_dust",
+      "value": 2
+    },
+    {
+      "item": "minecraft:enchanted_golden_apple",
+      "value": 15
+    },
+    {
+      "item": "minecraft:gold_block",
+      "value": 3
+    }
+  ]
+}

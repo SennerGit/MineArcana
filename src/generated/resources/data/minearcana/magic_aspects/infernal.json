@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "item": "minecraft:blaze_rod",
+      "value": 5
+    },
+    {
+      "item": "minecraft:magma_block",
+      "value": 3
+    },
+    {
+      "item": "minecraft:nether_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:lava_bucket",
+      "value": 8
+    },
+    {
+      "item": "minecraft:nether_star",
+      "value": 10
+    }
+  ]
+}

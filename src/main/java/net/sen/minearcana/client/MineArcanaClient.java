@@ -11,10 +11,10 @@ import net.sen.minearcana.MineArcana;
 @Mod(value = MineArcana.MODID, dist = Dist.CLIENT)
 public class MineArcanaClient {
     public static void MineArcanaClientRegistry(IEventBus eventBus) {
-        eventBus.addListener(MineArcanaClient::onClientSetup);
-        eventBus.addListener(MineArcanaClient::renderEntities);
-        eventBus.addListener(MineArcanaClient::registerLayer);
-        eventBus.addListener(MineArcanaClient::registerScreens);
+//        eventBus.addListener(MineArcanaClient::onClientSetup);
+//        eventBus.addListener(MineArcanaClient::renderEntities);
+//        eventBus.addListener(MineArcanaClient::registerLayer);
+//        eventBus.addListener(MineArcanaClient::registerScreens);
     }
 
     public static void onClientSetup(FMLClientSetupEvent event)

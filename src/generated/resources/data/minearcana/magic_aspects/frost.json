@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "item": "minecraft:ice",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blue_ice",
+      "value": 4
+    },
+    {
+      "item": "minecraft:snowball",
+      "value": 1
+    },
+    {
+      "item": "minecraft:packed_ice",
+      "value": 3
+    },
+    {
+      "item": "minecraft:powder_snow_bucket",
+      "value": 5
+    }
+  ]
+}

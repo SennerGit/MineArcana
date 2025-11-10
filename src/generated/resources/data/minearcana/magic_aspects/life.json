@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "item": "minecraft:apple",
+      "value": 1
+    },
+    {
+      "item": "minecraft:golden_carrot",
+      "value": 3
+    },
+    {
+      "item": "minecraft:honey_bottle",
+      "value": 2
+    },
+    {
+      "item": "minecraft:moss_block",
+      "value": 1
+    },
+    {
+      "item": "minecraft:oak_sapling",
+      "value": 1
+    },
+    {
+      "item": "minecraft:totem_of_undying",
+      "value": 10
+    }
+  ]
+}

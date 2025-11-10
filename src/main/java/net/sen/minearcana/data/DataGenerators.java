@@ -18,6 +18,7 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.sen.minearcana.MineArcana;
+import net.sen.minearcana.data.aspects.MagicAspectDataGenerator;
 import net.sen.minearcana.data.language.*;
 import net.sen.minearcana.data.loottable.*;
 import net.sen.minearcana.data.models.*;
@@ -59,6 +60,7 @@ public class DataGenerators {
         BlockTagsProvider blockTags = new ModBlockTagGenerator(output, lookupProvider , helper);
         generator.addProvider(event.includeServer(), blockTags);
         generator.addProvider(event.includeServer(), new ModItemTagGenerator(output, lookupProvider , blockTags.contentsGetter(), helper));
+        generator.addProvider(event.includeServer(), new MagicAspectDataGenerator(output, lookupProvider , blockTags.contentsGetter(), helper));
         generator.addProvider(event.includeServer(), new ModPaintingVariantTagProvider(output, lookupProvider , helper));
         generator.addProvider(event.includeServer(), new ModPoiTypeTagProvider(output, lookupProvider , helper));
         generator.addProvider(event.includeServer(), new ModFluidTagsProvider(output, lookupProvider , helper));

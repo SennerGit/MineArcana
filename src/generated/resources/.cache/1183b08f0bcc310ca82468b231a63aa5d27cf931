@@ -1,0 +1,16 @@
+// 1.21.1	2025-11-10T15:43:17.6998662	Magic Aspect Data Provider for minearcana
+d06738be2c2644f7e434dd6c2abb681af5221652 data/minearcana/magic_aspects/astral.json
+8bb4cc85e3ebb8b4202d0ab87b756f1c3f0fb136 data/minearcana/magic_aspects/death.json
+9c69d1c2467befbf7da25db765cbd15939a44833 data/minearcana/magic_aspects/divine.json
+eebc118b11e9903a87a41ab5cd53d7901985fe8d data/minearcana/magic_aspects/earth.json
+64b5a0008a5444a6b6bc8e365b10210f63248915 data/minearcana/magic_aspects/frost.json
+6871b299e8d98098cf4633e58b6fa69e8ccbdd79 data/minearcana/magic_aspects/infernal.json
+fdefae1118f55c3c9fa345fdc0f88ab360935c5c data/minearcana/magic_aspects/life.json
+384aa6c8511f2baf8dd2bea1df892ffcd172b62f data/minearcana/magic_aspects/mechanical.json
+7aa9f71297d78706d05ec387d32ad92a1b8046fc data/minearcana/magic_aspects/storm.json
+3da4fb3775dd9d424315e8aa79e21070aca07f1f data/minearcana/magic_aspects/tainted.json
+df18db77827107c6453dbc7bd96dee57de1e57db data/minearcana/tags/item/chaos.json
+9d382731ceb1b11356a08c80f39192399db3d223 data/minearcana/tags/item/cosmic.json
+0d45975422736b314194a29f68480f109f99a754 data/minearcana/tags/item/creation.json
+7485608fee16b4523e80ffe4d3c614dcd859d414 data/minearcana/tags/item/order.json
+7221cc60549fb766253171867d3aa92f91437d3f data/minearcana/tags/item/spirit.json
