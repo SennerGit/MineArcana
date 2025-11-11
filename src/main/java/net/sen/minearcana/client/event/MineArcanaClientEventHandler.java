@@ -1,7 +1,10 @@
 package net.sen.minearcana.client.event;
 
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -9,37 +12,13 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
+import net.sen.minearcana.MineArcana;
 import net.sen.minearcana.common.registries.MineArcanaTags;
 import net.sen.minearcana.data.aspects.MagicAspectDataLoader;
 
 import java.util.*;
 
 public class MineArcanaClientEventHandler {
-
-    // ------------------- Elements -------------------
-    private static final Map<TagKey<Item>, String> MAGIC_ELEMENT_ICONS = new LinkedHashMap<>();
-    static {
-        MAGIC_ELEMENT_ICONS.put(MineArcanaTags.MagicElements.CHAOS, "§6Chaos");
-        MAGIC_ELEMENT_ICONS.put(MineArcanaTags.MagicElements.ORDER, "§6Order");
-        MAGIC_ELEMENT_ICONS.put(MineArcanaTags.MagicElements.CREATION, "§6Creation");
-        MAGIC_ELEMENT_ICONS.put(MineArcanaTags.MagicElements.SPIRIT, "§6Spirit");
-        MAGIC_ELEMENT_ICONS.put(MineArcanaTags.MagicElements.COSMIC, "§6Cosmic");
-    }
-
-    // ------------------- Aspects -------------------
-    private static final Map<TagKey<Item>, String> MAGIC_ASPECT_ICONS = new LinkedHashMap<>();
-    static {
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.DIVINE, "Divine");
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.INFERNAL, "Infernal");
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.ASTRAL, "Astral");
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.COSMIC, "Cosmic");
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.LIFE, "Life");
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.DEATH, "Death");
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.EARTH, "Earth");
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.MECHANICAL, "Mechanical");
-        MAGIC_ASPECT_ICONS.put(MineArcanaTags.MagicAspects.TAINTED, "Tainted");
-    }
-
     // ------------------- Registration -------------------
     public static void MineArcanaClientEventHandlerRegistry(IEventBus bus) {
         // Tooltip listener
@@ -62,32 +41,69 @@ public class MineArcanaClientEventHandler {
 
     // ------------------- Elements -------------------
     private static void addMagicElementTooltip(ItemStack stack, List<Component> tooltip) {
-        Set<String> names = new LinkedHashSet<>();
+        List<Component> names = new ArrayList<>();
 
-        for (Map.Entry<TagKey<Item>, String> entry : MAGIC_ELEMENT_ICONS.entrySet()) {
-            if (stack.is(entry.getKey())) {
-                names.add(entry.getValue());
+        for (TagKey<Item> tag : BuiltInRegistries.ITEM.getTagNames().toList()) {
+            ResourceLocation tagLocation = tag.location();
+
+            if (!tagLocation.getPath().startsWith("element/") && !tagLocation.getNamespace().contains("element")) {
+                continue;
+            }
+
+            if (stack.is(tag)) {
+                String modid = tagLocation.getNamespace();
+                String elementName = tagLocation.getPath();
+                String translation = "element." + modid + "." + elementName;
+                names.add(Component.translatable(translation).withStyle(style -> style.withColor(0xFFFFFF)));
             }
         }
 
         if (!names.isEmpty()) {
-            String joined = String.join(", ", names);
+            MutableComponent joined = Component.literal("");
+
+            for (int i = 0; i < names.size(); i++) {
+                joined = joined.append(names.get(i));
+                if (i < names.size() - 1) joined = joined.append(Component.literal(", "));
+            }
+
             tooltip.add(
                     Component.literal("Elements: ")
                             .withStyle(style -> style.withColor(0xFFD700)) // gold
-                            .append(Component.literal(joined).withStyle(style -> style.withColor(0xFFFFFF))) // white
+                            .append(joined)
             );
         }
     }
 
     // ------------------- Aspects -------------------
     private static void addMagicAspectTooltip(ItemStack stack, List<Component> tooltip) {
-        Map<String, Integer> aspects = MagicAspectDataLoader.ITEM_ASPECT_VALUES.getOrDefault(stack.getItem(), Collections.emptyMap());
-        if (!aspects.isEmpty()) {
-            tooltip.add(Component.literal("Aspects:").withStyle(style -> style.withColor(0xFF00FF))); // magenta header
-            aspects.forEach((aspect, value) -> {
-                tooltip.add(Component.literal("  " + aspect + " x" + value).withStyle(style -> style.withColor(0x00FFFF))); // cyan values
-            });
-        }
+        Map<String, Integer> aspects = MagicAspectDataLoader.ITEM_ASPECT_VALUES
+                .getOrDefault(stack.getItem(), Collections.emptyMap());
+
+        if (aspects.isEmpty()) return;
+
+        // Header
+        tooltip.add(Component.literal("Aspects:")
+                .withColor(0xFF00FF)); // magenta
+
+        // Each aspect entry
+        aspects.forEach((aspectId, value) -> {
+            // Translation key support, e.g. "aspect.minearcana.infernal"
+            String[] parts = aspectId.split(":");
+            String modid = parts.length > 1 ? parts[0] : "minecraft";
+            String name = parts.length > 1 ? parts[1] : aspectId;
+
+            String translationKey = "aspect." + modid + "." + name;
+
+            // If not translated, the translatable component will fall back to key text
+            MutableComponent aspectText = Component.translatable(translationKey)
+                    .withColor(0x00FFFF);
+
+            MutableComponent line = Component.literal("  ")
+                    .append(aspectText)
+                    .append(Component.literal(" x" + value));
+
+            tooltip.add(line);
+        });
     }
+
 }

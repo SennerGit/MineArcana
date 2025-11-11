@@ -1,0 +1,436 @@
+{
+  "values": [
+    {
+      "item": "minecraft:chorus_fruit",
+      "value": 3
+    },
+    {
+      "item": "minecraft:shulker_shell",
+      "value": 3
+    },
+    {
+      "item": "minecraft:chorus_plant",
+      "value": 3
+    },
+    {
+      "item": "minecraft:chorus_flower",
+      "value": 3
+    },
+    {
+      "item": "minecraft:dragon_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:ender_chest",
+      "value": 3
+    },
+    {
+      "item": "minecraft:shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:white_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:orange_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:magenta_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:light_blue_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:yellow_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:lime_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:pink_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:gray_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:light_gray_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:cyan_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:purple_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:blue_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:brown_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:green_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:red_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:black_shulker_box",
+      "value": 3
+    },
+    {
+      "item": "minecraft:ender_pearl",
+      "value": 3
+    },
+    {
+      "item": "minecraft:ender_eye",
+      "value": 3
+    },
+    {
+      "item": "minecraft:armadillo_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:allay_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:axolotl_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:bat_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:bee_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:blaze_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:bogged_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:breeze_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:cat_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:camel_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:cave_spider_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:chicken_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:cod_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:cow_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:creeper_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:dolphin_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:donkey_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:drowned_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:elder_guardian_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:ender_dragon_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:enderman_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:endermite_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:evoker_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:fox_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:frog_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:ghast_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:glow_squid_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:goat_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:guardian_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:hoglin_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:horse_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:husk_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:iron_golem_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:llama_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:magma_cube_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:mooshroom_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:mule_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:ocelot_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:panda_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:parrot_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:phantom_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:pig_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:piglin_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:piglin_brute_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:pillager_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:polar_bear_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:pufferfish_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:rabbit_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:ravager_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:salmon_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:sheep_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:shulker_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:silverfish_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:skeleton_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:skeleton_horse_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:slime_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:sniffer_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:snow_golem_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:spider_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:squid_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:stray_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:strider_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:tadpole_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:trader_llama_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:tropical_fish_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:turtle_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:vex_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:villager_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:vindicator_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:wandering_trader_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:warden_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:witch_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:wither_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:wither_skeleton_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:wolf_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:zoglin_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:zombie_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:zombie_horse_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:zombie_villager_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:zombified_piglin_spawn_egg",
+      "value": 3
+    },
+    {
+      "item": "minecraft:dragon_head",
+      "value": 3
+    },
+    {
+      "item": "minecraft:popped_chorus_fruit",
+      "value": 3
+    },
+    {
+      "item": "minecraft:dragon_breath",
+      "value": 3
+    }
+  ]
+}

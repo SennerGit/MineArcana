@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "item": "minecraft:elytra",
+      "value": 1
+    },
+    {
+      "item": "minecraft:feather",
+      "value": 1
+    },
+    {
+      "item": "minecraft:slime_ball",
+      "value": 2
+    },
+    {
+      "item": "minecraft:light_weighted_pressure_plate",
+      "value": 1
+    },
+    {
+      "item": "minecraft:heavy_weighted_pressure_plate",
+      "value": 1
+    }
+  ]
+}

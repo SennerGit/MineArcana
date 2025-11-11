@@ -5,20 +5,68 @@
       "value": 1
     },
     {
+      "item": "minecraft:soul_sand",
+      "value": 1
+    },
+    {
+      "item": "minecraft:wither_rose",
+      "value": 1
+    },
+    {
+      "item": "minecraft:soul_soil",
+      "value": 1
+    },
+    {
+      "item": "minecraft:soul_torch",
+      "value": 1
+    },
+    {
+      "item": "minecraft:bone_block",
+      "value": 1
+    },
+    {
+      "item": "minecraft:bone_meal",
+      "value": 1
+    },
+    {
       "item": "minecraft:rotten_flesh",
       "value": 1
     },
     {
+      "item": "minecraft:wither_spawn_egg",
+      "value": 1
+    },
+    {
+      "item": "minecraft:wither_skeleton_spawn_egg",
+      "value": 1
+    },
+    {
+      "item": "minecraft:skeleton_skull",
+      "value": 1
+    },
+    {
       "item": "minecraft:wither_skeleton_skull",
-      "value": 8
+      "value": 1
     },
     {
-      "item": "minecraft:soul_sand",
-      "value": 2
+      "item": "minecraft:skull_banner_pattern",
+      "value": 1
     },
     {
-      "item": "minecraft:wither_rose",
-      "value": 5
+      "item": "minecraft:soul_lantern",
+      "value": 1
+    },
+    {
+      "item": "minecraft:soul_campfire",
+      "value": 1
+    },
+    {
+      "item": "minecraft:skull_pottery_sherd",
+      "value": 1
+    },
+    {
+      "item": "minearcana:crushed_rotten_flesh",
+      "value": 1
     }
   ]
 }

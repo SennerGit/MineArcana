@@ -37,42 +37,49 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         PackOutput output = generator.getPackOutput();
 
-        //Automating stuff
+        // Track helper resources (armor trims etc.)
         addArmorTrims(helper);
 
-        //Client Data
-        generator.addProvider(event.includeClient(), new ModLanguageEnUsProvider(output, "en_us"));
-        generator.addProvider(event.includeClient(), new ModBlockModelProvider(output, helper));
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(output, helper));
-        generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, helper));
-        generator.addProvider(event.includeClient(), new ModGlobalLootModifierProvider(output, lookupProvider));
-        generator.addProvider(event.includeClient(), new ModSoundProvider(output, helper));
+        // -------- CLIENT DATA --------
+        if (event.includeClient()) {
+            generator.addProvider(true, new ModLanguageEnUsProvider(output, "en_us"));
+            generator.addProvider(true, new ModBlockModelProvider(output, helper));
+            generator.addProvider(true, new ModItemModelProvider(output, helper));
+            generator.addProvider(true, new ModBlockStateProvider(output, helper));
+            generator.addProvider(true, new ModSoundProvider(output, helper));
+        }
 
-        //Server Data
-        DatapackBuiltinEntriesProvider datapackProvider = new ModRegistriesProvider(output, lookupProvider);
-        CompletableFuture<HolderLookup.Provider> registryProvider = datapackProvider.getRegistryProvider();
+        // -------- SERVER DATA --------
+        if (event.includeServer()) {
+            // Vanilla/Mod registry provider
+            DatapackBuiltinEntriesProvider datapackProvider = new ModRegistriesProvider(output, lookupProvider);
+            generator.addProvider(true, datapackProvider);
 
-        generator.addProvider(event.includeServer(), datapackProvider);
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(output, lookupProvider ));
-        generator.addProvider(event.includeServer(), new ModLootTableProvider(output, lookupProvider ));
+            // Recipes and Loot
+            generator.addProvider(true, new ModRecipeProvider(output, lookupProvider));
+            generator.addProvider(true, new ModLootTableProvider(output, lookupProvider));
 
-        //Tags
-        BlockTagsProvider blockTags = new ModBlockTagGenerator(output, lookupProvider , helper);
-        generator.addProvider(event.includeServer(), blockTags);
-        generator.addProvider(event.includeServer(), new ModItemTagGenerator(output, lookupProvider , blockTags.contentsGetter(), helper));
-        generator.addProvider(event.includeServer(), new MagicAspectDataGenerator(output, lookupProvider , blockTags.contentsGetter(), helper));
-        generator.addProvider(event.includeServer(), new ModPaintingVariantTagProvider(output, lookupProvider , helper));
-        generator.addProvider(event.includeServer(), new ModPoiTypeTagProvider(output, lookupProvider , helper));
-        generator.addProvider(event.includeServer(), new ModFluidTagsProvider(output, lookupProvider , helper));
-        generator.addProvider(event.includeServer(), new ModBiomeTagProvider(output, lookupProvider , helper));
+            // Tags
+            BlockTagsProvider blockTags = new ModBlockTagGenerator(output, lookupProvider, helper);
+            generator.addProvider(true, blockTags);
+            generator.addProvider(true, new ModItemTagGenerator(output, lookupProvider, blockTags.contentsGetter(), helper));
+            generator.addProvider(true, new MagicAspectDataGenerator(output, lookupProvider, blockTags.contentsGetter(), helper));
+            generator.addProvider(true, new ModPaintingVariantTagProvider(output, lookupProvider, helper));
+            generator.addProvider(true, new ModPoiTypeTagProvider(output, lookupProvider, helper));
+            generator.addProvider(true, new ModFluidTagsProvider(output, lookupProvider, helper));
+            generator.addProvider(true, new ModBiomeTagProvider(output, lookupProvider, helper));
+        }
 
-        //pack.meta
-        generator.addProvider(true, new PackMetadataGenerator(output).add(PackMetadataSection.TYPE, new PackMetadataSection(
-                Component.literal("MineArcana Datapack"),
-                DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
-                Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE))
-        )));
+        // -------- PACK METADATA --------
+        generator.addProvider(true, new PackMetadataGenerator(output)
+                .add(PackMetadataSection.TYPE, new PackMetadataSection(
+                        Component.literal("MineArcana Datapack"),
+                        DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
+                        Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE))
+                ))
+        );
     }
+
 
     private static void addArmorTrims(ExistingFileHelper helper) {
         addTrimToArmor(helper, "boots_trim_");

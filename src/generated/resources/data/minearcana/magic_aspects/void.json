@@ -1,0 +1,104 @@
+{
+  "values": [
+    {
+      "item": "minecraft:obsidian",
+      "value": 2
+    },
+    {
+      "item": "minecraft:crying_obsidian",
+      "value": 2
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull",
+      "value": 2
+    },
+    {
+      "item": "minecraft:bedrock",
+      "value": 2
+    },
+    {
+      "item": "minecraft:wither_rose",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blackstone_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_brick_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:structure_void",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_button",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_pressure_plate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:wither_spawn_egg",
+      "value": 2
+    },
+    {
+      "item": "minecraft:wither_skeleton_spawn_egg",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blackstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blackstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blackstone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:gilded_blackstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:chiseled_polished_blackstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_brick_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_brick_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cracked_polished_blackstone_bricks",
+      "value": 2
+    }
+  ]
+}

@@ -6,6 +6,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 
+import static net.sen.minearcana.common.registries.MineArcanaBlocks.*;
+
 public class ModBlockLootTables extends BlockLootTableHelper {
     private static final LootItemCondition.Builder SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
 
@@ -15,5 +17,10 @@ public class ModBlockLootTables extends BlockLootTableHelper {
 
     @Override
     protected void generate() {
+        this.dropSelf(CAULDRON);
+        this.dropSelf(ASPECT_EXTRACTOR);
+        this.dropSelf(ASPECT_CONDENSER);
+        this.dropSelf(ASPECT_MIXER);
+        this.dropSelf(ASPECT_TANK);
     }
 }

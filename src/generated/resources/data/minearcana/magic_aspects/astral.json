@@ -2,23 +2,123 @@
   "values": [
     {
       "item": "minecraft:ender_pearl",
-      "value": 3
-    },
-    {
-      "item": "minecraft:ender_eye",
-      "value": 5
-    },
-    {
-      "item": "minecraft:shulker_shell",
       "value": 2
     },
     {
       "item": "minecraft:dragon_breath",
-      "value": 8
+      "value": 2
     },
     {
       "item": "minecraft:netherite_scrap",
       "value": 4
+    },
+    {
+      "item": "minecraft:dragon_egg",
+      "value": 2
+    },
+    {
+      "item": "minecraft:ender_chest",
+      "value": 2
+    },
+    {
+      "item": "minecraft:shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:white_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:orange_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:magenta_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:light_blue_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:yellow_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:lime_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:pink_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:gray_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:light_gray_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cyan_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:purple_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blue_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:brown_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:green_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:red_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:black_shulker_box",
+      "value": 2
+    },
+    {
+      "item": "minecraft:elytra",
+      "value": 2
+    },
+    {
+      "item": "minecraft:ender_eye",
+      "value": 2
+    },
+    {
+      "item": "minecraft:ender_dragon_spawn_egg",
+      "value": 2
+    },
+    {
+      "item": "minecraft:enderman_spawn_egg",
+      "value": 2
+    },
+    {
+      "item": "minecraft:endermite_spawn_egg",
+      "value": 2
+    },
+    {
+      "item": "minecraft:shulker_spawn_egg",
+      "value": 2
+    },
+    {
+      "item": "minecraft:dragon_head",
+      "value": 2
+    },
+    {
+      "item": "minecraft:shulker_shell",
+      "value": 2
     }
   ]
 }

@@ -1,20 +1,588 @@
 {
   "values": [
     {
-      "item": "minecraft:iron_ingot",
+      "item": "minecraft:dirt",
       "value": 2
-    },
-    {
-      "item": "minecraft:emerald",
-      "value": 4
     },
     {
       "item": "minecraft:clay_ball",
       "value": 1
     },
     {
-      "item": "minecraft:dirt",
+      "item": "minecraft:coal",
       "value": 1
+    },
+    {
+      "item": "minecraft:iron_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cobbled_deepslate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_deepslate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:dripstone_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:coarse_dirt",
+      "value": 2
+    },
+    {
+      "item": "minecraft:rooted_dirt",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cobblestone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:suspicious_gravel",
+      "value": 2
+    },
+    {
+      "item": "minecraft:gravel",
+      "value": 2
+    },
+    {
+      "item": "minecraft:coal_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_coal_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_iron_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:copper_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_copper_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:gold_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_gold_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_redstone_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:emerald_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_emerald_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:lapis_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_lapis_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:diamond_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_diamond_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:nether_gold_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:nether_quartz_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_iron_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_copper_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_gold_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:heavy_core",
+      "value": 2
+    },
+    {
+      "item": "minecraft:sandstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:chiseled_sandstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cut_sandstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:spore_blossom",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:smooth_stone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:sandstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cut_sandstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cobblestone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_brick_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:red_sandstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cut_red_sandstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:smooth_red_sandstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:smooth_sandstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:smooth_stone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:mossy_cobblestone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cobblestone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:glowstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:infested_stone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:infested_cobblestone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:infested_stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:infested_mossy_stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:infested_cracked_stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:infested_chiseled_stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:infested_deepslate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:mossy_stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cracked_stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:chiseled_stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cracked_deepslate_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_tiles",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cracked_deepslate_tiles",
+      "value": 2
+    },
+    {
+      "item": "minecraft:chiseled_deepslate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:reinforced_deepslate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_brick_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:end_stone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:end_stone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:sandstone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cobblestone_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:mossy_cobblestone_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:red_sandstone_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:mossy_stone_brick_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_brick_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:sandstone_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:end_stone_brick_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blackstone_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_brick_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cobbled_deepslate_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_deepslate_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_brick_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_tile_wall",
+      "value": 2
+    },
+    {
+      "item": "minecraft:dirt_path",
+      "value": 2
+    },
+    {
+      "item": "minecraft:red_sandstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:chiseled_red_sandstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cut_red_sandstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:red_sandstone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:smooth_red_sandstone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:mossy_stone_brick_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:mossy_cobblestone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:end_stone_brick_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:smooth_sandstone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cobbled_deepslate_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_deepslate_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_brick_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_tile_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:smooth_red_sandstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:mossy_stone_brick_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:mossy_cobblestone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:end_stone_brick_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:smooth_sandstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cobbled_deepslate_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_deepslate_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_brick_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_tile_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone_torch",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone_lamp",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_button",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_button",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_pressure_plate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_pressure_plate",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_iron",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_copper",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_gold",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_sword",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_shovel",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_pickaxe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_axe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_hoe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:glowstone_dust",
+      "value": 2
+    },
+    {
+      "item": "minecraft:grindstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stonecutter",
+      "value": 2
+    },
+    {
+      "item": "minecraft:lodestone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blackstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blackstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:blackstone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:gilded_blackstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:chiseled_polished_blackstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_brick_slab",
+      "value": 2
+    },
+    {
+      "item": "minecraft:polished_blackstone_brick_stairs",
+      "value": 2
+    },
+    {
+      "item": "minecraft:cracked_polished_blackstone_bricks",
+      "value": 2
+    },
+    {
+      "item": "minecraft:pointed_dripstone",
+      "value": 2
+    },
+    {
+      "item": "minecraft:explorer_pottery_sherd",
+      "value": 2
     }
   ]
 }

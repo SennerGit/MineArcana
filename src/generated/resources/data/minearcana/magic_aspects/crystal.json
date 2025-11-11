@@ -1,0 +1,196 @@
+{
+  "values": [
+    {
+      "item": "minecraft:diamond",
+      "value": 3
+    },
+    {
+      "item": "minecraft:quartz",
+      "value": 3
+    },
+    {
+      "item": "minecraft:emerald",
+      "value": 3
+    },
+    {
+      "item": "minecraft:emerald_ore",
+      "value": 3
+    },
+    {
+      "item": "minecraft:deepslate_emerald_ore",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_ore",
+      "value": 3
+    },
+    {
+      "item": "minecraft:deepslate_diamond_ore",
+      "value": 3
+    },
+    {
+      "item": "minecraft:nether_quartz_ore",
+      "value": 3
+    },
+    {
+      "item": "minecraft:amethyst_block",
+      "value": 3
+    },
+    {
+      "item": "minecraft:budding_amethyst",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_block",
+      "value": 3
+    },
+    {
+      "item": "minecraft:quartz_slab",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine_slab",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine_brick_slab",
+      "value": 3
+    },
+    {
+      "item": "minecraft:dark_prismarine_slab",
+      "value": 3
+    },
+    {
+      "item": "minecraft:smooth_quartz",
+      "value": 3
+    },
+    {
+      "item": "minecraft:emerald_block",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine_wall",
+      "value": 3
+    },
+    {
+      "item": "minecraft:chiseled_quartz_block",
+      "value": 3
+    },
+    {
+      "item": "minecraft:quartz_block",
+      "value": 3
+    },
+    {
+      "item": "minecraft:quartz_bricks",
+      "value": 3
+    },
+    {
+      "item": "minecraft:quartz_pillar",
+      "value": 3
+    },
+    {
+      "item": "minecraft:quartz_stairs",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine_bricks",
+      "value": 3
+    },
+    {
+      "item": "minecraft:dark_prismarine",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine_stairs",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine_brick_stairs",
+      "value": 3
+    },
+    {
+      "item": "minecraft:dark_prismarine_stairs",
+      "value": 3
+    },
+    {
+      "item": "minecraft:smooth_quartz_stairs",
+      "value": 3
+    },
+    {
+      "item": "minecraft:smooth_quartz_slab",
+      "value": 3
+    },
+    {
+      "item": "minecraft:amethyst_shard",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_sword",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_shovel",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_pickaxe",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_axe",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_hoe",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_helmet",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_chestplate",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_leggings",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_boots",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine_shard",
+      "value": 3
+    },
+    {
+      "item": "minecraft:prismarine_crystals",
+      "value": 3
+    },
+    {
+      "item": "minecraft:diamond_horse_armor",
+      "value": 3
+    },
+    {
+      "item": "minecraft:small_amethyst_bud",
+      "value": 3
+    },
+    {
+      "item": "minecraft:medium_amethyst_bud",
+      "value": 3
+    },
+    {
+      "item": "minecraft:large_amethyst_bud",
+      "value": 3
+    },
+    {
+      "item": "minecraft:amethyst_cluster",
+      "value": 3
+    }
+  ]
+}

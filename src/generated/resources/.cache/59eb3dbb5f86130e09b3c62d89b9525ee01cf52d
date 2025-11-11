@@ -1,1 +1,6 @@
-// 1.21.1	2025-11-09T14:20:06.939727	Loot Tables
+// 1.21.1	2025-11-11T11:20:41.9641359	Loot Tables
+e99b8c538a31dad8a31f0ab930877c504cdab1e3 data/minearcana/loot_table/blocks/aspect_condenser.json
+410b458ea7b214fb5622f6edf4155708c7a25c43 data/minearcana/loot_table/blocks/aspect_extractor.json
+a98443031daa3b95d9054bf0cf8f82fab4986cf8 data/minearcana/loot_table/blocks/aspect_mixer.json
+e5c9e3ac593cfb0f38fd68589470ee186bb1dece data/minearcana/loot_table/blocks/aspect_tank.json
+2282d281a180732279abd93f3a7aaa6c7c1a0253 data/minearcana/loot_table/blocks/cauldron.json

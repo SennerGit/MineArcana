@@ -1,6 +1,7 @@
 package net.sen.minearcana.data.language;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -11,7 +12,13 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
+import net.sen.minearcana.common.registries.MineArcanaRegistry;
 import net.sen.minearcana.common.utils.ModUtils;
+import net.sen.minearcana.common.utils.aspect.Aspect;
+import net.sen.minearcana.common.utils.element.Element;
+
+import java.util.Locale;
+import java.util.function.Supplier;
 
 public abstract class LanguageProviderHelper extends LanguageProvider {
     public LanguageProviderHelper(PackOutput output, String locale) {
@@ -31,7 +38,8 @@ public abstract class LanguageProviderHelper extends LanguageProvider {
         config();
         creativeTab();
         baseAdvancements();
-
+        elements();
+        aspects();
     }
 
     abstract void spawnEggs();
@@ -45,6 +53,8 @@ public abstract class LanguageProviderHelper extends LanguageProvider {
     abstract void config();
     abstract void creativeTab();
     abstract void baseAdvancements();
+    abstract void elements();
+    abstract void aspects();
 
     protected void addTagFilterUI(String id, String name) {
         this.add("gui.tag_filter.lostworlds." + id, name);
@@ -87,5 +97,25 @@ public abstract class LanguageProviderHelper extends LanguageProvider {
     protected void createBook(String id, String name, String landing) {
         this.add("items."+id+".book.name", name);
         this.add("info."+id+".book.landing", landing);
+    }
+
+    protected void addElement(Supplier<Element> element, String name) {
+        ResourceLocation id = MineArcanaRegistry.ELEMENT.getKey(element.get());
+
+        if (id == null) {
+            throw new IllegalStateException("Tried to add language entry for unregistered element: " + element);
+        }
+
+        add("element." + id.getNamespace() + ".element/" + id.getPath().toLowerCase(Locale.ROOT), name);
+    }
+
+    protected void addAspect(Supplier<Aspect> aspect, String name) {
+        ResourceLocation id = MineArcanaRegistry.ASPECT.getKey(aspect.get());
+
+        if (id == null) {
+            throw new IllegalStateException("Tried to add language entry for unregistered element: " + aspect);
+        }
+
+        add("aspect.minecraft." + id.getPath().toUpperCase(Locale.ROOT), name);
     }
 }

@@ -8,10 +8,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.sen.minearcana.client.MineArcanaClient;
 import net.sen.minearcana.client.event.MineArcanaClientEventHandler;
 import net.sen.minearcana.common.event.MineArcanaEventHandler;
-import net.sen.minearcana.common.registries.MineArcanaBlocks;
-import net.sen.minearcana.common.registries.MineArcanaCreativeModeTabs;
-import net.sen.minearcana.common.registries.MineArcanaEntityTypes;
-import net.sen.minearcana.common.registries.MineArcanaItems;
+import net.sen.minearcana.common.registries.*;
 import net.sen.minearcana.config.Config;
 import org.slf4j.Logger;
 
@@ -35,12 +32,18 @@ public class MineArcana {
             MineArcanaClientEventHandler.MineArcanaClientEventHandlerRegistry(eventBus);
         }
 
+        //Event Handlers
         MineArcanaEventHandler.MineArcanaEventHandlerRegistry(eventBus);
 
+        //Vanilla Registries
         MineArcanaBlocks.register(eventBus);
         MineArcanaItems.register(eventBus);
         MineArcanaEntityTypes.register(eventBus);
         MineArcanaCreativeModeTabs.register(eventBus);
+
+        //Custom Registries
+        MineArcanaElements.register(eventBus);
+        MineArcanaAspects.register(eventBus);
 
         eventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
@@ -55,6 +58,7 @@ public class MineArcana {
 
     private void preInit(FMLCommonSetupEvent event) {
         Reflection.initialize(
+
         );
     }
 

@@ -1,0 +1,56 @@
+{
+  "values": [
+    {
+      "item": "minecraft:diamond_sword",
+      "value": 2
+    },
+    {
+      "item": "minecraft:netherite_sword",
+      "value": 2
+    },
+    {
+      "item": "minecraft:iron_sword",
+      "value": 2
+    },
+    {
+      "item": "minecraft:wooden_sword",
+      "value": 2
+    },
+    {
+      "item": "minecraft:wooden_axe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_sword",
+      "value": 2
+    },
+    {
+      "item": "minecraft:stone_axe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:golden_sword",
+      "value": 2
+    },
+    {
+      "item": "minecraft:golden_axe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:iron_axe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:diamond_axe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:netherite_axe",
+      "value": 2
+    },
+    {
+      "item": "minecraft:shield",
+      "value": 2
+    }
+  ]
+}

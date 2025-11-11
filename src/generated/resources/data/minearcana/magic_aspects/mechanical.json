@@ -6,19 +6,51 @@
     },
     {
       "item": "minecraft:piston",
-      "value": 3
-    },
-    {
-      "item": "minecraft:repeater",
-      "value": 3
+      "value": 2
     },
     {
       "item": "minecraft:hopper",
-      "value": 4
+      "value": 2
     },
     {
-      "item": "minecraft:iron_block",
-      "value": 5
+      "item": "minecraft:redstone_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_redstone_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone_torch",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:repeater",
+      "value": 2
+    },
+    {
+      "item": "minecraft:comparator",
+      "value": 2
+    },
+    {
+      "item": "minecraft:sticky_piston",
+      "value": 2
+    },
+    {
+      "item": "minecraft:dispenser",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone_lamp",
+      "value": 2
+    },
+    {
+      "item": "minecraft:hopper_minecart",
+      "value": 2
     }
   ]
 }

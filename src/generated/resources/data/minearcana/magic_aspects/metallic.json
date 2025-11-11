@@ -1,0 +1,136 @@
+{
+  "values": [
+    {
+      "item": "minecraft:iron_ingot",
+      "value": 2
+    },
+    {
+      "item": "minecraft:gold_ingot",
+      "value": 2
+    },
+    {
+      "item": "minecraft:netherite_ingot",
+      "value": 2
+    },
+    {
+      "item": "minecraft:coal_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_coal_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:iron_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_iron_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:copper_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_copper_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:gold_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_gold_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:redstone_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_redstone_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:emerald_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_emerald_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:lapis_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_lapis_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:diamond_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:deepslate_diamond_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:nether_gold_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:nether_quartz_ore",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_iron_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_copper_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_gold_block",
+      "value": 2
+    },
+    {
+      "item": "minecraft:heavy_core",
+      "value": 2
+    },
+    {
+      "item": "minecraft:spore_blossom",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_iron",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_copper",
+      "value": 2
+    },
+    {
+      "item": "minecraft:copper_ingot",
+      "value": 2
+    },
+    {
+      "item": "minecraft:raw_gold",
+      "value": 2
+    },
+    {
+      "item": "minecraft:gold_nugget",
+      "value": 2
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "value": 2
+    },
+    {
+      "item": "minecraft:explorer_pottery_sherd",
+      "value": 2
+    }
+  ]
+}

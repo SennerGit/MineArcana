@@ -2,22 +2,10 @@
   "values": [
     {
       "item": "minecraft:trident",
-      "value": 8
-    },
-    {
-      "item": "minecraft:lightning_rod",
       "value": 3
     },
     {
-      "item": "minecraft:feather",
-      "value": 1
-    },
-    {
-      "item": "minecraft:elytra",
-      "value": 5
-    },
-    {
-      "item": "minecraft:gunpowder",
+      "item": "minecraft:lightning_rod",
       "value": 2
     }
   ]

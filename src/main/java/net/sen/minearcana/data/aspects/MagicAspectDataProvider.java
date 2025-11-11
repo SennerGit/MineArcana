@@ -11,11 +11,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.sen.minearcana.MineArcana;
+import net.sen.minearcana.common.utils.aspect.Aspect;
+import net.sen.minearcana.common.utils.element.Element;
 import org.jetbrains.annotations.Nullable;
 
 import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 public abstract class MagicAspectDataProvider implements DataProvider {
     protected final PackOutput.PathProvider pathProvider;
@@ -45,15 +49,48 @@ public abstract class MagicAspectDataProvider implements DataProvider {
 
     protected abstract void addAspects(HolderLookup.Provider provider);
 
-    protected AspectBuilder addAspect(String aspectName, TagKey<Item>... tagKeys) {
+    protected AspectBuilder addAspect(Supplier<Aspect> aspect, Supplier<Element>... parents) {
+        List<Element> elements = new ArrayList<>();
+        for (Supplier<Element> parent : parents) {
+            if (parent.get() == null) {
+                throw new IllegalArgumentException("Parent element not registered for aspect: " + aspect.get().getName());
+            }
+            elements.add(parent.get());
+        }
+        return addAspect(aspect.get(), elements.toArray(new Element[]{}));
+    }
+
+    protected AspectBuilder addAspect(Aspect aspect, Supplier<Element>... parents) {
+        List<Element> elements = new ArrayList<>();
+        for (Supplier<Element> parent : parents) {
+            if (parent.get() == null) {
+                throw new IllegalArgumentException("Parent element not registered for aspect: " + aspect.getName());
+            }
+            elements.add(parent.get());
+        }
+        return addAspect(aspect, elements.toArray(new Element[]{}));
+    }
+
+    protected AspectBuilder addAspect(Supplier<Aspect> aspect, Element... parents) {
+        return addAspect(aspect.get(), parents);
+    }
+
+    protected AspectBuilder addAspect(Aspect aspect, Element... parents) {
         // Create aspect entry map
-        ResourceLocation aspectId = ResourceLocation.fromNamespaceAndPath(modId, aspectName);
+        ResourceLocation aspectId = ResourceLocation.fromNamespaceAndPath(modId, aspect.getName().toLowerCase(Locale.ROOT));
         Map<ResourceLocation, Integer> entries = new LinkedHashMap<>();
         aspectEntries.put(aspectId, entries);
 
         // Collect tag locations for this aspect
         Set<ResourceLocation> aspectTags = new LinkedHashSet<>();
-        for (TagKey<Item> tagKey : tagKeys) {
+
+        for (Element element : parents) {
+            TagKey<Item> tagKey = TagKey.create(BuiltInRegistries.ITEM.key(), ResourceLocation.fromNamespaceAndPath(modId, "element/" + element.getName().toLowerCase(Locale.ROOT)));
+
+            if (BuiltInRegistries.ITEM.getTag(tagKey).isEmpty()) {
+                MineArcana.LOGGER.debug("Created empty tag for element '{}'", element.getName());
+            }
+
             aspectTags.add(tagKey.location());
             // Ensure the tag exists in tagEntries
             tagEntries.computeIfAbsent(tagKey.location(), k -> new LinkedHashSet<>());
@@ -145,6 +182,15 @@ public abstract class MagicAspectDataProvider implements DataProvider {
         /** Add a single item with default value = 1 */
         public AspectBuilder addItem(Item item) {
             return addItem(item, 1);
+        }
+
+        public AspectBuilder addMatchingTag(TagKey<Item> tag, int value) {
+            // Go through all items under this tag and apply the same aspect value
+            BuiltInRegistries.ITEM.getTagOrEmpty(tag).forEach(holder -> {
+                Item item = holder.value();
+                entries.put(BuiltInRegistries.ITEM.getKey(item), value);
+            });
+            return this;
         }
     }
 }

@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "item": "minecraft:tnt",
+      "value": 2
+    },
+    {
+      "item": "minecraft:flint_and_steel",
+      "value": 3
+    },
+    {
+      "item": "minecraft:gunpowder",
+      "value": 2
+    },
+    {
+      "item": "minecraft:tnt_minecart",
+      "value": 2
+    },
+    {
+      "item": "minecraft:fire_charge",
+      "value": 2
+    },
+    {
+      "item": "minecraft:wind_charge",
+      "value": 2
+    }
+  ]
+}

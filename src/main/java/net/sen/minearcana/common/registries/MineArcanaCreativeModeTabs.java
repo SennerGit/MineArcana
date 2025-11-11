@@ -15,6 +15,8 @@ import java.util.Collection;
 import java.util.Locale;
 
 import static net.sen.minearcana.common.registries.MineArcanaEntityTypes.SPAWN_EGGS;
+import static net.sen.minearcana.common.registries.MineArcanaBlocks.*;
+import static net.sen.minearcana.common.registries.MineArcanaItems.*;
 
 public class MineArcanaCreativeModeTabs {
     private static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ModUtils.getModId());
@@ -23,12 +25,16 @@ public class MineArcanaCreativeModeTabs {
         return CreativeModeTab.builder()
                 .icon(() -> new ItemStack(Items.STICK))
                 .title(Component.translatable(generateName("minearcana_tab")))
-                .withSearchBar()
                 .displayItems(((itemDisplayParameters, output) -> {
-                            //Generated Lists
-//                    createTestTubeItemsAlphabetical(output);
-                            createSpawnEggsAlphabetical(output);
-                        })
+                        output.accept(CAULDRON.get());
+                        output.accept(ASPECT_EXTRACTOR.get());
+                        output.accept(ASPECT_CONDENSER.get());
+                        output.accept(ASPECT_MIXER.get());
+                        output.accept(ASPECT_TANK.get());
+
+                        //Generated Lists
+                        createSpawnEggsAlphabetical(output);
+                    })
                 )
                 .build();
     });
