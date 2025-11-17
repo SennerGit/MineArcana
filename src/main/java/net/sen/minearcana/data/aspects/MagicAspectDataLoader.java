@@ -50,7 +50,7 @@ public class MagicAspectDataLoader extends SimpleJsonResourceReloadListener {
                     aspectData.put(itemId, value);
                 }
 
-                RAW_ASPECT_DATA.put(id.getPath().toUpperCase(Locale.ROOT), aspectData);
+                RAW_ASPECT_DATA.put(id.toString(), aspectData);
             } catch (Exception e) {
                 MineArcana.LOGGER.error("Failed to parse aspect JSON for {}: {}", id, e.getMessage());
             }

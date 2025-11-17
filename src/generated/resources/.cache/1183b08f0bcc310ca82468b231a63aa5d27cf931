@@ -1,7 +1,7 @@
-// 1.21.1	2025-11-11T12:55:43.8635141	Magic Aspect Data Provider for minearcana
+// 1.21.1	2025-11-16T07:41:58.2921618	Magic Aspect Data Provider for minearcana
 616b3f32d846fb89b3b9c45133842464649b71c5 data/minearcana/magic_aspects/astral.json
 a828b51c28fb9fae936f0fad95006509bd9071ac data/minearcana/magic_aspects/crystal.json
-37271c2fa3336b81cfd8efe881b68ca8eef21272 data/minearcana/magic_aspects/death.json
+e5b496b39c75b9c8adb72740db8329cc98b31ca4 data/minearcana/magic_aspects/death.json
 01bb15c689c948d7c857a67b6fcdbb8b266a2904 data/minearcana/magic_aspects/demonic.json
 2217c29dc53b6aef684a8dbaa90bcc97de4bcd60 data/minearcana/magic_aspects/divine.json
 caa8debaa32dc8181a7f544293ffc709d6018834 data/minearcana/magic_aspects/earth.json
@@ -15,13 +15,13 @@ bf0be45df1e38982a1ce77e0227aea333a60b058 data/minearcana/magic_aspects/life.json
 6f7bd717fec8bd77507158c8d2e7cb8acb40b8e5 data/minearcana/magic_aspects/limbo.json
 e9cd9c8d55f0106a14a578713c0da53c4058c2fa data/minearcana/magic_aspects/mechanical.json
 3289333763e67954eac0be78e73f253a5f6ce1be data/minearcana/magic_aspects/metallic.json
-d3aac07f9499461cadefe1a910aa075a9b17dfef data/minearcana/magic_aspects/nature.json
+d1281cd6c981dad1f1809f7000421f668fe13ed2 data/minearcana/magic_aspects/nature.json
 ce171a1c5befb086ef172eab671e4cce181d9dbf data/minearcana/magic_aspects/storm.json
-c76ddd31c672f09a592e7121684e63011284e880 data/minearcana/magic_aspects/taint.json
+f8b107ff5e2a1a59f65ec46dedcea5980e13ba06 data/minearcana/magic_aspects/taint.json
 5c884d2e129c416622a1e4e7dc560d7fd28fbbaa data/minearcana/magic_aspects/void.json
-f8b0a600cf27017b69285d0da67020abb0c4c3da data/minearcana/magic_aspects/water.json
-f7b6bd2585b2b08bfec0124bdd4ab75cd04d2f04 data/minearcana/tags/item/element/chaos.json
+2ab5565ee98040c6daeea8a74bd97f39cd953061 data/minearcana/magic_aspects/water.json
+f6b743f99e7853e77d33e92b00c53a9c74a07704 data/minearcana/tags/item/element/chaos.json
 894280a0b75ebf2ebf74a8f2e6f23317e07ebb26 data/minearcana/tags/item/element/cosmic.json
-60eaf78602b719490b3c2f61c5dbcc0b3c7ab8f8 data/minearcana/tags/item/element/creation.json
-60b050d46fbbf137d990796c9c184fd60bfa761b data/minearcana/tags/item/element/order.json
-20e6338602d0d1f7ee926140174fd55e537e513d data/minearcana/tags/item/element/spirit.json
+fc7b340151ef1b8bf4d745ddc339ebf1e9b09f4d data/minearcana/tags/item/element/creation.json
+158b68a248e1e9f8f81414f4516c4ac4707b65b9 data/minearcana/tags/item/element/order.json
+b9997d5c260464fa1877cafe07f987b38ff3775e data/minearcana/tags/item/element/spirit.json

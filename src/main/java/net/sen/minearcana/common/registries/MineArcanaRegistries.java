@@ -9,13 +9,14 @@ import net.sen.minearcana.common.utils.aspect.Aspect;
 import net.sen.minearcana.common.utils.element.Element;
 import org.jetbrains.annotations.ApiStatus;
 
-@ApiStatus.Internal
-public class MineArcanaRegistry {
+import java.util.stream.Stream;
+
+public class MineArcanaRegistries {
     // ------------------- ELEMENT REGISTRY -------------------
-    public static final Registry<Element> ELEMENT = new RegistryBuilder<>(Keys.ELEMENT).sync(true).create();
+    public static final Registry<Element> ELEMENT = new RegistryBuilder<>(Keys.ELEMENT).create();
 
     // ------------------- ASPECT REGISTRY -------------------
-    public static final Registry<Aspect> ASPECT = new RegistryBuilder<>(Keys.ASPECT).sync(true).create();
+    public static final Registry<Aspect> ASPECT = new RegistryBuilder<>(Keys.ASPECT).create();
 
     public static void register(NewRegistryEvent event) {
         event.register(ELEMENT);
@@ -29,5 +30,13 @@ public class MineArcanaRegistry {
         private static <T> ResourceKey<Registry<T>> createRegistryKey(String name) {
             return ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(MineArcana.MODID, name));
         }
+    }
+
+    public static Stream<Element> getAllElements() {
+        return ELEMENT.stream();
+    }
+
+    public static Stream<Aspect> getAllAspects() {
+        return ASPECT.stream();
     }
 }

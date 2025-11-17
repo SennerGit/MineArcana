@@ -12,7 +12,7 @@ public class ModBlockStateProvider extends ModBlockStateHelper {
 
     @Override
     protected void registerStatesAndModels() {
-        this.blockWithItem(CAULDRON);
+        this.blockWithItem(ARCANA_CAULDRON);
         this.blockWithItem(ASPECT_EXTRACTOR);
         this.blockWithItem(ASPECT_CONDENSER);
         this.blockWithItem(ASPECT_MIXER);

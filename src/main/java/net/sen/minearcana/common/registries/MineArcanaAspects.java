@@ -4,14 +4,13 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sen.minearcana.MineArcana;
 import net.sen.minearcana.common.utils.aspect.Aspect;
-import net.sen.minearcana.common.utils.element.Element;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
 
 public class MineArcanaAspects {
-    public static final DeferredRegister<Aspect> ASPECTS = DeferredRegister.create(MineArcanaRegistry.ASPECT, MineArcana.MODID);
+    public static final DeferredRegister<Aspect> ASPECTS = DeferredRegister.create(MineArcanaRegistries.ASPECT, MineArcana.MODID);
+
+    public static final Supplier<Aspect> EMPTY = registerAspect("empty", 0xFF4500);
 
     //Chaos Aspects
     public static final Supplier<Aspect> INFERNAL = registerAspect("infernal", 0xFF4500);

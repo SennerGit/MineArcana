@@ -1,25 +1,28 @@
 package net.sen.minearcana.data.recipes;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.sen.minearcana.MineArcana;
 import net.sen.minearcana.common.utils.ModUtils;
+import net.sen.minearcana.common.utils.aspect.AspectStack;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public abstract class ModRecipeHelper extends RecipeProvider {
     public ModRecipeHelper(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
@@ -339,5 +342,38 @@ public abstract class ModRecipeHelper extends RecipeProvider {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(ingredient), Ingredient.of(Items.NETHERITE_INGOT), RecipeCategory.COMBAT, result.asItem())
                 .unlocks("has_item", has(Items.NETHERITE_INGOT))
                 .save(output, ModUtils.getModPath("smithing/netherite/" + ModUtils.getItemLikeId(result) + "_smithing"));
+    }
+
+    protected final void createCauldronRecipe(
+            RecipeOutput output,
+            Holder<Potion> result,
+            FluidStack fluidStack,
+            int temperature,
+            AspectStack... aspectStacks
+    ) {
+        // Build the potion ItemStack as recipe result
+        ItemStack outputPotion = new ItemStack(Items.POTION);
+        outputPotion.set(DataComponents.POTION_CONTENTS, new PotionContents(result));
+
+        // Use the GLASS_BOTTLE as the input item (or whatever ingredient you want)
+        ItemLike input = Items.GLASS_BOTTLE;
+
+        ArcanaCauldronRecipeBuilder.brewing(
+                        input,                    // ItemLike input
+                        1,                        // Count
+                        outputPotion,             // RESULT item — ItemStack
+                        fluidStack,               // Required fluid in cauldron
+                        temperature,              // Required temp
+                        List.of(aspectStacks),    // Aspects
+                        20f                       // XP
+                )
+                .unlockedBy("has_aspect", has(Items.GLASS_BOTTLE))
+                .save(
+                        output,
+                        ResourceLocation.fromNamespaceAndPath(
+                                MineArcana.MODID,
+                                "brewing/" + BuiltInRegistries.POTION.getKey(result.value()).getPath()
+                        )
+                );
     }
 }

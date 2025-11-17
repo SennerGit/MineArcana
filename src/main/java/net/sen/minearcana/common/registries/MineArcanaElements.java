@@ -8,7 +8,9 @@ import net.sen.minearcana.common.utils.element.Element;
 import java.util.function.Supplier;
 
 public class MineArcanaElements {
-    public static final DeferredRegister<Element> ELEMENTS = DeferredRegister.create(MineArcanaRegistry.ELEMENT, MineArcana.MODID);
+    public static final DeferredRegister<Element> ELEMENTS = DeferredRegister.create(MineArcanaRegistries.ELEMENT, MineArcana.MODID);
+
+    public static final Supplier<Element> EMPTY = registerElement("empty", 0xFFFFFF);
 
     public static final Supplier<Element> CHAOS = registerElement("chaos", 0xFFFFFF);
     public static final Supplier<Element> ORDER = registerElement("order", 0xFFFFFF);

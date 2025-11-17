@@ -1,14 +1,10 @@
 package net.sen.minearcana.data.language;
 
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.sen.minearcana.common.registries.MineArcanaAspects;
 import net.sen.minearcana.common.registries.MineArcanaBlocks;
 import net.sen.minearcana.common.registries.MineArcanaCreativeModeTabs;
 import net.sen.minearcana.common.registries.MineArcanaElements;
-
-import java.util.Collection;
 
 public class ModLanguageEnUsProvider extends LanguageProviderHelper {
     public ModLanguageEnUsProvider(PackOutput output, String locale) {
@@ -21,7 +17,7 @@ public class ModLanguageEnUsProvider extends LanguageProviderHelper {
 
     @Override
     void blocks() {
-        this.addBlock(MineArcanaBlocks.CAULDRON, "Cauldron");
+        this.addBlock(MineArcanaBlocks.ARCANA_CAULDRON, "Cauldron");
         this.addBlock(MineArcanaBlocks.ASPECT_EXTRACTOR, "Aspect Extractor");
         this.addBlock(MineArcanaBlocks.ASPECT_CONDENSER, "Aspect Condenser");
         this.addBlock(MineArcanaBlocks.ASPECT_MIXER, "Aspect Mixer");

@@ -10,10 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
-import net.sen.minearcana.MineArcana;
-import net.sen.minearcana.common.registries.MineArcanaTags;
 import net.sen.minearcana.data.aspects.MagicAspectDataLoader;
 
 import java.util.*;

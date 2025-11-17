@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.sen.minearcana.common.blocks.*;
 import net.sen.minearcana.common.utils.ModUtils;
 
 import java.util.Locale;
@@ -23,11 +24,11 @@ public class MineArcanaBlocks {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ModUtils.getModId());
     private static final DeferredRegister.Items BLOCK_ITEMS = DeferredRegister.createItems(ModUtils.getModId());
 
-    public static final Supplier<Block> CAULDRON = createBlock("cauldron");
-    public static final Supplier<Block> ASPECT_EXTRACTOR = createBlock("aspect_extractor");
-    public static final Supplier<Block> ASPECT_CONDENSER = createBlock("aspect_condenser");
-    public static final Supplier<Block> ASPECT_MIXER = createBlock("aspect_mixer");
-    public static final Supplier<Block> ASPECT_TANK = createBlock("aspect_tank");
+    public static final Supplier<Block> ARCANA_CAULDRON = createBlock("cauldron", ArcanaCauldronBlock::new);
+    public static final Supplier<Block> ASPECT_EXTRACTOR = createBlock("aspect_extractor", AspectExtractorBlock::new);
+    public static final Supplier<Block> ASPECT_CONDENSER = createBlock("aspect_condenser", AspectCondenserBlock::new);
+    public static final Supplier<Block> ASPECT_MIXER = createBlock("aspect_mixer", AspectMixerBlock::new);
+    public static final Supplier<Block> ASPECT_TANK = createBlock("aspect_tank", AspectTankBlock::new);
 
     private static Supplier<Block> createBlock(String name) {
         return createBlock(name.toLowerCase(Locale.ROOT), () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));

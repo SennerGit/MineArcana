@@ -16,7 +16,6 @@ import java.util.Locale;
 
 import static net.sen.minearcana.common.registries.MineArcanaEntityTypes.SPAWN_EGGS;
 import static net.sen.minearcana.common.registries.MineArcanaBlocks.*;
-import static net.sen.minearcana.common.registries.MineArcanaItems.*;
 
 public class MineArcanaCreativeModeTabs {
     private static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ModUtils.getModId());
@@ -26,7 +25,7 @@ public class MineArcanaCreativeModeTabs {
                 .icon(() -> new ItemStack(Items.STICK))
                 .title(Component.translatable(generateName("minearcana_tab")))
                 .displayItems(((itemDisplayParameters, output) -> {
-                        output.accept(CAULDRON.get());
+                        output.accept(ARCANA_CAULDRON.get());
                         output.accept(ASPECT_EXTRACTOR.get());
                         output.accept(ASPECT_CONDENSER.get());
                         output.accept(ASPECT_MIXER.get());

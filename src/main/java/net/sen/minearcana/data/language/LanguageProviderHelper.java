@@ -12,7 +12,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
-import net.sen.minearcana.common.registries.MineArcanaRegistry;
+import net.sen.minearcana.common.registries.MineArcanaRegistries;
 import net.sen.minearcana.common.utils.ModUtils;
 import net.sen.minearcana.common.utils.aspect.Aspect;
 import net.sen.minearcana.common.utils.element.Element;
@@ -100,7 +100,7 @@ public abstract class LanguageProviderHelper extends LanguageProvider {
     }
 
     protected void addElement(Supplier<Element> element, String name) {
-        ResourceLocation id = MineArcanaRegistry.ELEMENT.getKey(element.get());
+        ResourceLocation id = MineArcanaRegistries.ELEMENT.getKey(element.get());
 
         if (id == null) {
             throw new IllegalStateException("Tried to add language entry for unregistered element: " + element);
@@ -110,12 +110,12 @@ public abstract class LanguageProviderHelper extends LanguageProvider {
     }
 
     protected void addAspect(Supplier<Aspect> aspect, String name) {
-        ResourceLocation id = MineArcanaRegistry.ASPECT.getKey(aspect.get());
+        ResourceLocation id = MineArcanaRegistries.ASPECT.getKey(aspect.get());
 
         if (id == null) {
             throw new IllegalStateException("Tried to add language entry for unregistered element: " + aspect);
         }
 
-        add("aspect.minecraft." + id.getPath().toUpperCase(Locale.ROOT), name);
+        add("aspect." + id.getNamespace().toLowerCase() + "." + id.getPath().toLowerCase(Locale.ROOT), name);
     }
 }

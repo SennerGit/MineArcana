@@ -18,21 +18,6 @@ import java.util.function.Supplier;
 public class MineArcanaItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ModUtils.getModId());
 
-    /*
-    Pestle and Mortar Items
-     */
-    public static final Supplier<Item> PESTLE_AND_MORTAR = createItem("pestle_and_mortar", new Item.Properties().stacksTo(1));
-    public static final Supplier<Item> CRUSHED_SPIDER_EYES = createItem("crushed_spider_eyes");
-    public static final Supplier<Item> CRUSHED_ROTTEN_FLESH = createItem("crushed_rotten_flesh");
-    public static final Supplier<Item> CRUSHED_BEEF = createItem("crushed_beef");
-    public static final Supplier<Item> CRUSHED_PORK = createItem("crushed_pork");
-    public static final Supplier<Item> CRUSHED_MUTTON = createItem("crushed_mutton");
-    public static final Supplier<Item> CRUSHED_RABBIT = createItem("crushed_rabbit");
-    public static final Supplier<Item> CRUSHED_COD = createItem("crushed_cod");
-    public static final Supplier<Item> CRUSHED_SALMON = createItem("crushed_salmon");
-    public static final Supplier<Item> CRUSHED_PUFFER_FISH = createItem("crushed_puffer_fish");
-    public static final Supplier<Item> CRUSHED_LEATHER = createItem("crushed_leather");
-
     private static Supplier<Item> createItem(String name) {
         return ITEMS.register(name, () -> new Item(new Item.Properties()));
     }

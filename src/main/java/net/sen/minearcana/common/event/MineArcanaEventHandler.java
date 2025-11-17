@@ -7,7 +7,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
 import net.sen.minearcana.MineArcana;
-import net.sen.minearcana.common.registries.MineArcanaRegistry;
+import net.sen.minearcana.common.registries.MineArcanaRegistries;
 import net.sen.minearcana.data.aspects.MagicAspectDataLoader;
 
 public class MineArcanaEventHandler {
@@ -26,6 +26,6 @@ public class MineArcanaEventHandler {
     }
 
     private static void registerRegistries(NewRegistryEvent event) {
-        MineArcanaRegistry.register(event);
+        MineArcanaRegistries.register(event);
     }
 }

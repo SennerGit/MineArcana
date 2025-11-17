@@ -17,7 +17,7 @@ public class ModBlockLootTables extends BlockLootTableHelper {
 
     @Override
     protected void generate() {
-        this.dropSelf(CAULDRON);
+        this.dropSelf(ARCANA_CAULDRON);
         this.dropSelf(ASPECT_EXTRACTOR);
         this.dropSelf(ASPECT_CONDENSER);
         this.dropSelf(ASPECT_MIXER);
