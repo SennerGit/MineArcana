@@ -4,9 +4,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.sen.minearcana.MineArcana;
-import net.sen.minearcana.common.blocks.entities.ArcanaCauldronBlockEntity;
+import net.sen.minearcana.common.blocks.entities.AspectExtractorBlockEntity;
 import net.sen.minearcana.common.utils.aspect.AspectStack;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
@@ -16,34 +17,25 @@ import snownee.jade.api.config.IPluginConfig;
 
 import java.util.List;
 
-import static net.sen.minearcana.common.blocks.entities.ArcanaCauldronBlockEntity.*;
+import static net.sen.minearcana.common.blocks.entities.AspectExtractorBlockEntity.*;
 
-public enum ArcanaCauldronComponentProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
+public enum AspectExtractorComponentProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
     INSTANCE;
 
     private static final ResourceLocation UID =
-            ResourceLocation.fromNamespaceAndPath(MineArcana.MODID, "arcana_cauldron");
+            ResourceLocation.fromNamespaceAndPath(MineArcana.MODID, "aspect_extractor");
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
         CompoundTag serverData = accessor.getServerData();
 
-        // --- Fluid info ---
-        if (serverData.contains("Fluid")) {
-            FluidStack fluid = FluidStack.parseOptional(accessor.getLevel().registryAccess(), serverData.getCompound(FLUID_TAG));
-            tooltip.add(Component.literal("Fluid: " + fluid.getHoverName().getString() + " (" + fluid.getAmount() + "mb)"));
+        // --- Item ---
+        if (serverData.contains(ITEM_TAG)) {
+            ItemStack itemStack = ItemStack.parseOptional(accessor.getLevel().registryAccess(), serverData.getCompound(ITEM_TAG));
+            tooltip.add(Component.literal("Item: " + itemStack.getHoverName().getString()));
         } else {
-            tooltip.add(Component.literal("Fluid: None"));
+            tooltip.add(Component.literal("Item: None"));
         }
-
-        // --- Heat info ---
-        int temp = serverData.getInt(TEMPERATURE_TAG);
-        int baseTemp = serverData.getInt(TEMPERATURE_BASE_TAG);
-        int maxTemp = serverData.getInt(TEMPERATURE_MAX_TAG);
-
-        tooltip.add(Component.literal("Temperature: " + temp + "°C"));
-        tooltip.add(Component.literal("Base Temperature: " + baseTemp + "°C"));
-        tooltip.add(Component.literal("Max Temperature: " + maxTemp + "°C"));
 
         // --- Aspects ---
         if (serverData.contains(ASPECT_TAG)) {
@@ -64,20 +56,14 @@ public enum ArcanaCauldronComponentProvider implements IBlockComponentProvider, 
 
     @Override
     public void appendServerData(CompoundTag tag, BlockAccessor accessor) {
-        if (accessor.getBlockEntity() instanceof ArcanaCauldronBlockEntity blockEntity) {
-
-            // Temperature values
-            tag.putInt(TEMPERATURE_TAG, blockEntity.getTemperature());
-            tag.putInt(TEMPERATURE_BASE_TAG, blockEntity.getBaseTemperature());
-            tag.putInt(TEMPERATURE_MAX_TAG, blockEntity.getMaxTemperature());
-
-            // Fluid info
-            FluidStack fluidStack = blockEntity.getFluid();
-            if (!fluidStack.isEmpty()) {
-                tag.put(FLUID_TAG, fluidStack.save(accessor.getLevel().registryAccess()));
+        if (accessor.getBlockEntity() instanceof AspectExtractorBlockEntity blockEntity) {
+            // --- Item ---
+            ItemStack itemStack = blockEntity.inventoryHandler.getStackInSlot(0);
+            if (!itemStack.isEmpty()) {
+                tag.put(ITEM_TAG, itemStack.save(accessor.getLevel().registryAccess()));
             }
 
-            // Aspects
+            // --- Aspects ---
             List<AspectStack> aspects = blockEntity.getAspects();
             if (!aspects.isEmpty()) {
                 ListTag aspectTags = new ListTag();

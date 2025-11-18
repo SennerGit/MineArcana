@@ -17,6 +17,7 @@ public class MineArcanaElements {
     public static final Supplier<Element> CREATION = registerElement("creation", 0xFFFFFF);
     public static final Supplier<Element> SPIRIT = registerElement("spirit", 0xFFFFFF);
     public static final Supplier<Element> COSMIC = registerElement("cosmic", 0xFFFFFF);
+//    public static final Supplier<Element> ELDRITCH = registerElement("eldritch", 0xFFFFFF);
 
     public static Supplier<Element> registerElement(String name, int colour) {
         return ELEMENTS.register(name, () -> new Element(name, colour));

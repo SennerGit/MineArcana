@@ -1,29 +1,71 @@
 package net.sen.minearcana.common.blocks.entities;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.sen.minearcana.MineArcana;
 import net.sen.minearcana.common.registries.MineArcanaBlockEntites;
 import net.sen.minearcana.common.utils.aspect.Aspect;
 import net.sen.minearcana.common.utils.aspect.AspectStack;
 import net.sen.minearcana.common.utils.pipelogic.IAspectHandler;
+import net.sen.minearcana.common.utils.pipelogic.IAspectPipeHandler;
+import net.sen.minearcana.common.utils.pipelogic.PipeMode;
 
-public class AspectTankBlockEntity extends BlockEntity implements IAspectHandler {
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class AspectPipeBlockEntity extends BlockEntity implements IAspectHandler, IAspectPipeHandler {
     private AspectStack aspect = AspectStack.empty();
-    public static final int CAPACITY = 1000;
+    private final int transferAmount = 10;
+    private static final int CAPACITY = 10;
 
     public static final String ASPECT_TAG = "Aspect";
+    public Map<BlockPos, PipeMode> neighbourPos = new HashMap<>();
 
-    public AspectTankBlockEntity(BlockPos pos, BlockState blockState) {
-        super(MineArcanaBlockEntites.ASPECT_TANK.get(), pos, blockState);
+    public AspectPipeBlockEntity(BlockPos pos, BlockState blockState) {
+        super(MineArcanaBlockEntites.ASPECT_PIPE.get(), pos, blockState);
     }
 
-//    public static void serverTicker(Level level, BlockPos pos, BlockState state, AspectTankBlockEntity blockEntity) {
-//
-//    }
+    public static void serverTicker(Level level, BlockPos pos, BlockState state, AspectPipeBlockEntity blockEntity) {
+        blockEntity.handleTransfer();
+    }
+
+    /**
+     PIPE LOGIC
+     */
+    public void onNetworkChanged() {
+        // re-scan neighbors
+        for (Direction dir : Direction.values()) {
+            tryTransfer(getBlockPos().relative(dir));
+        }
+    }
+
+    private void tryTransfer(BlockPos neighbourPos) {
+        this.neighbourPos.clear();
+        if (level.getBlockEntity(neighbourPos) instanceof IAspectHandler aspectHandler) {
+            if (level.getBlockEntity(neighbourPos) instanceof IAspectPipeHandler) {
+                this.neighbourPos.put(neighbourPos, PipeMode.PIPE);
+            } else if (aspectHandler.canInsert() && aspectHandler.canExtract()) {
+                this.neighbourPos.put(neighbourPos, PipeMode.BOTH);
+            } else if (aspectHandler.canInsert()) {
+                this.neighbourPos.put(neighbourPos, PipeMode.INPUT);
+            } else if (aspectHandler.canExtract()) {
+                this.neighbourPos.put(neighbourPos, PipeMode.OUTPUT);
+            } else {
+                this.neighbourPos.put(neighbourPos, PipeMode.DISABLED);
+            }
+        }
+    }
+
+    //TODO: Implement transfer logic
+    private void handleTransfer() {
+
+    }
 
     /**
      STORAGE LOGIC
@@ -57,19 +99,18 @@ public class AspectTankBlockEntity extends BlockEntity implements IAspectHandler
         return leftover > 0 ? new AspectStack(incoming.getAspect(), leftover) : AspectStack.empty();
     }
 
+    public AspectStack removeAspect(AspectStack aspectStack) {
+        AspectStack empty = new AspectStack(aspectStack.getAspect(), 0);
+        if (aspectStack.getAmount() <= 0) return empty;
+        if (aspectStack.isEmpty() || !aspect.equals(aspectStack)) return empty;
 
-    public AspectStack removeAspect(int amountRequested) {
-        if (amountRequested <= 0 || aspect.isEmpty()) {
-            return AspectStack.empty();
+        if (aspectStack.getAmount() >= aspect.getAmount()) {
+            aspect = AspectStack.empty();
+            return new AspectStack(aspectStack.getAspect(), aspectStack.getAmount() - aspect.getAmount());
+        } else {
+            aspect = new AspectStack(aspect.getAspect(), aspect.getAmount() - aspectStack.getAmount());
+            return aspectStack;
         }
-
-        int removed = Math.min(amountRequested, aspect.getAmount());
-        AspectStack result = new AspectStack(aspect.getAspect(), removed);
-
-        aspect.shrink(removed);
-        if (aspect.getAmount() <= 0) aspect = AspectStack.empty();
-
-        return result;
     }
 
     /**
@@ -108,7 +149,7 @@ public class AspectTankBlockEntity extends BlockEntity implements IAspectHandler
 
     @Override
     public AspectStack extractAspect(int amount) {
-        return removeAspect(amount);
+        return removeAspect(new AspectStack(aspect.getAspect(), amount));
     }
 
     @Override

@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minearcana:aspect_condenser"
+          "name": "minearcana:aspect_pipe"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "minearcana:blocks/aspect_condenser"
+  "random_sequence": "minearcana:blocks/aspect_pipe"
 }

@@ -1,0 +1,33 @@
+{
+  "type": "minearcana:arcana_cauldron",
+  "input": {
+    "aspects": [
+      {
+        "amount": 3,
+        "aspect": "minearcana:life"
+      },
+      {
+        "amount": 3,
+        "aspect": "minearcana:divine"
+      }
+    ],
+    "fluid": {
+      "amount": 1000,
+      "id": "minecraft:water"
+    },
+    "itemInput": {
+      "count": 1,
+      "id": "minecraft:glass_bottle"
+    },
+    "temperature": 100
+  },
+  "output": {
+    "components": {
+      "minecraft:potion_contents": {
+        "potion": "minecraft:regeneration"
+      }
+    },
+    "count": 1,
+    "id": "minecraft:potion"
+  }
+}

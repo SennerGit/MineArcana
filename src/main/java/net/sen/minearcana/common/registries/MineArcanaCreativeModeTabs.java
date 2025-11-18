@@ -27,9 +27,9 @@ public class MineArcanaCreativeModeTabs {
                 .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(ARCANA_CAULDRON.get());
                         output.accept(ASPECT_EXTRACTOR.get());
-                        output.accept(ASPECT_CONDENSER.get());
                         output.accept(ASPECT_MIXER.get());
                         output.accept(ASPECT_TANK.get());
+                        output.accept(ASPECT_PIPE.get());
 
                         //Generated Lists
                         createSpawnEggsAlphabetical(output);

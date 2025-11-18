@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class AspectMixerBlock extends BaseEntityBlock {
     public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-    public static final MapCodec<ArcanaCauldronBlock> CODEC = simpleCodec(ArcanaCauldronBlock::new);
+    public static final MapCodec<AspectMixerBlock> CODEC = simpleCodec(AspectMixerBlock::new);
 
     public AspectMixerBlock() {
         super(BlockBehaviour.Properties.of());

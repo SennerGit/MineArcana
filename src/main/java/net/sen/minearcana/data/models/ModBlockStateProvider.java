@@ -14,8 +14,8 @@ public class ModBlockStateProvider extends ModBlockStateHelper {
     protected void registerStatesAndModels() {
         this.blockWithItem(ARCANA_CAULDRON);
         this.blockWithItem(ASPECT_EXTRACTOR);
-        this.blockWithItem(ASPECT_CONDENSER);
         this.blockWithItem(ASPECT_MIXER);
         this.blockWithItem(ASPECT_TANK);
+        this.blockWithItem(ASPECT_PIPE);
     }
 }

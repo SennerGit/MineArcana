@@ -9,122 +9,82 @@ import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.fluids.FluidStack;
-
 import net.sen.minearcana.common.recipes.ArcanaCauldronRecipe;
 import net.sen.minearcana.common.recipes.ArcanaCauldronRecipeInput;
-import net.sen.minearcana.common.utils.aspect.AspectStack;
-
-import org.jetbrains.annotations.Nullable;
+import net.sen.minearcana.common.recipes.AspectRequirement;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ArcanaCauldronRecipeBuilder implements RecipeBuilder {
-
     private final RecipeCategory category;
-
-    private final ItemStack inputItem;
     private final ItemStack result;
-
-    private final FluidStack fluid;
-    private final List<AspectStack> aspects;
+    private final Item input;
+    private final int count;
+    private final FluidStack fluidStack;
     private final int temperature;
+    private final List<AspectRequirement> aspects;
     private final float experience;
-
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-    @Nullable private String group;
+    private String group;
 
-    private ArcanaCauldronRecipeBuilder(
-            RecipeCategory category,
-            ItemStack inputItem,
-            ItemStack result,
-            FluidStack fluid,
-            int temperature,
-            List<AspectStack> aspects,
-            float experience
-    ) {
+    private ArcanaCauldronRecipeBuilder(RecipeCategory category, ItemStack result, ItemLike input, int count, FluidStack fluidStack, int temperature, List<AspectRequirement> aspects, float experience) {
         this.category = category;
-        this.inputItem = inputItem;
         this.result = result;
-        this.fluid = fluid;
+        this.input = input.asItem();
+        this.count = count;
+        this.fluidStack = fluidStack;
         this.temperature = temperature;
         this.aspects = aspects;
         this.experience = experience;
     }
 
-    // Factory
-    public static ArcanaCauldronRecipeBuilder brewing(
-            ItemLike input,
-            int count,
-            ItemStack result,
-            FluidStack fluid,
-            int temperature,
-            List<AspectStack> aspects,
-            float xp
-    ) {
-        return new ArcanaCauldronRecipeBuilder(
-                RecipeCategory.BREWING,
-                new ItemStack(input, count),
-                result,
-                fluid,
-                temperature,
-                aspects,
-                xp
-        );
+    public static ArcanaCauldronRecipeBuilder brewing(ItemStack result, int count, FluidStack fluidStack, int temperature, List<AspectRequirement> aspects, float experience) {
+        return new ArcanaCauldronRecipeBuilder(RecipeCategory.BREWING, result, Items.GLASS_BOTTLE, count, fluidStack, temperature, aspects, experience);
     }
 
-    // ------------------------------------
-    // Required RecipeBuilder Methods
-    // ------------------------------------
     @Override
-    public ArcanaCauldronRecipeBuilder unlockedBy(String key, Criterion<?> criterion) {
-        this.criteria.put(key, criterion);
+    public RecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
+        this.criteria.put(name, criterion);
         return this;
     }
 
     @Override
-    public ArcanaCauldronRecipeBuilder group(@Nullable String group) {
-        this.group = group;
+    public RecipeBuilder group(String groupName) {
+        this.group = groupName;
         return this;
     }
 
     @Override
     public Item getResult() {
-        return result.getItem();
+        return this.result.getItem();
     }
 
     @Override
-    public void save(RecipeOutput output, ResourceLocation id) {
-
-        // -------- Advancement --------
-        Advancement.Builder adv = output.advancement()
+    public void save(RecipeOutput recipeOutput, ResourceLocation id) {
+        Advancement.Builder advancement = recipeOutput.advancement()
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
                 .rewards(AdvancementRewards.Builder.recipe(id))
                 .requirements(AdvancementRequirements.Strategy.OR);
+        this.criteria.forEach(advancement::addCriterion);
 
-        this.criteria.forEach(adv::addCriterion);
-
-        // -------- Build Recipe --------
         ArcanaCauldronRecipe recipe = new ArcanaCauldronRecipe(
                 new ArcanaCauldronRecipeInput(
-                        inputItem,
-                        fluid,
-                        aspects,
-                        temperature
+                        new ItemStack(this.input, this.count),
+                        this.fluidStack,
+                        this.aspects,
+                        this.temperature
                 ),
-                result.copy()
+                this.result.copy()
         );
 
-        // -------- Save --------
-        output.accept(
-                id,
-                recipe,
-                adv.build(id.withPrefix("recipes/" + category.getFolderName() + "/"))
-        );
+        recipeOutput.accept(id, recipe, advancement.build(id.withPrefix("recipes/" + this.category.getFolderName() + "/")));
     }
 }

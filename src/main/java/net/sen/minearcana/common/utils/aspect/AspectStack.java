@@ -253,4 +253,11 @@ public class AspectStack implements MutableDataComponentHolder {
         }
     }
 
+    public void addAmount(int amountToAdd) {
+        this.amount += amountToAdd;
+    }
+
+    public boolean isSameType(AspectStack other) {
+        return this.getAspect() == other.getAspect();
+    }
 }

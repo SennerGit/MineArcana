@@ -13,7 +13,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.FurnaceBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -29,8 +28,11 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.sen.minearcana.common.blocks.entities.ArcanaCauldronBlockEntity;
+import net.sen.minearcana.common.recipes.ArcanaCauldronRecipe;
 import net.sen.minearcana.common.registries.MineArcanaBlockEntites;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class ArcanaCauldronBlock extends BaseEntityBlock {
     public static final MapCodec<ArcanaCauldronBlock> CODEC = simpleCodec(ArcanaCauldronBlock::new);
@@ -65,7 +67,7 @@ public class ArcanaCauldronBlock extends BaseEntityBlock {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
 
-        // Handle filling the cauldron with a fluid bucket
+        // --- Handle fluid buckets ---
         if (stack.getItem() instanceof BucketItem bucket) {
             Fluid fluidInBucket = bucket.content;
             if (cauldronBE.addWater(new FluidStack(fluidInBucket, FluidType.BUCKET_VOLUME))) {
@@ -77,10 +79,10 @@ public class ArcanaCauldronBlock extends BaseEntityBlock {
             }
         }
 
-        // Handle emptying the cauldron into a bucket
+        // --- Handle emptying the cauldron into a bucket ---
         if (stack.getItem() == Items.BUCKET) {
             FluidStack fluidInCauldron = cauldronBE.getFluid();
-            if (cauldronBE.removeWater(new FluidStack(fluidInCauldron.getFluid(), FluidType.BUCKET_VOLUME))) {
+            if (!fluidInCauldron.isEmpty() && cauldronBE.removeWater(new FluidStack(fluidInCauldron.getFluid(), FluidType.BUCKET_VOLUME))) {
                 if (!player.isCreative()) {
                     stack.shrink(1);
                     player.addItem(new ItemStack(fluidInCauldron.getFluid().getBucket()));
@@ -89,18 +91,41 @@ public class ArcanaCauldronBlock extends BaseEntityBlock {
             }
         }
 
+        if (stack.getItem() == Items.SPONGE) {
+            cauldronBE.empty();
+        }
 
-        cauldronBE.findMatchingRecipe(stack).ifPresent(recipe -> {
-            if (stack.getItem() == recipe.getInputItem()) {
-                    ItemStack potion = cauldronBE.extractPotion();
-                    if (!potion.isEmpty()) {
-                        if (!player.isCreative()) stack.shrink(1);
-                        if (!player.addItem(potion)) player.drop(potion, false);
+        // --- Handle glass bottles (crafting potions) ---
+        if (stack.getItem() == Items.GLASS_BOTTLE) {
+            cauldronBE.inputItem = stack.copy(); // track the bottle/item being used
+
+            // Process any aspects from items inside the cauldron (optional: auto-add)
+            cauldronBE.processAspectsFromItemsInside(); // Optional helper method if you want automatic aspect collection
+
+            // Try to match recipe
+            Optional<ArcanaCauldronRecipe> maybeRecipe = cauldronBE.findMatchingRecipe(stack);
+            if (maybeRecipe.isPresent()) {
+                ArcanaCauldronRecipe recipe = maybeRecipe.get();
+                ItemStack output = cauldronBE.extractPotion(recipe);
+
+                if (!output.isEmpty()) {
+                    if (!player.isCreative()) {
+                        stack.shrink(1); // consume bottle
                     }
-            }
-        });
 
-        return ItemInteractionResult.sidedSuccess(level.isClientSide);
+                    if (!player.addItem(output)) {
+                        player.drop(output, false);
+                    }
+
+                    return ItemInteractionResult.sidedSuccess(level.isClientSide);
+                }
+            }
+
+            // If no recipe matched, fail gracefully
+            return ItemInteractionResult.FAIL;
+        }
+
+        return ItemInteractionResult.SUCCESS;
     }
 
     @Override
@@ -144,9 +169,7 @@ public class ArcanaCauldronBlock extends BaseEntityBlock {
     }
 
     @javax.annotation.Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createArcanaCauldronTicker(
-            Level level, BlockEntityType<T> serverType, BlockEntityType<? extends ArcanaCauldronBlockEntity> clientType
-    ) {
-        return level.isClientSide ? null : createTickerHelper(serverType, clientType, ArcanaCauldronBlockEntity::serverTick);
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createArcanaCauldronTicker(Level level, BlockEntityType<T> serverType, BlockEntityType<? extends ArcanaCauldronBlockEntity> clientType) {
+        return level.isClientSide ? null : createTickerHelper(serverType, clientType, ArcanaCauldronBlockEntity::serverTicker);
     }
 }

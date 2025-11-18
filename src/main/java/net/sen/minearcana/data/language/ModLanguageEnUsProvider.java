@@ -19,9 +19,9 @@ public class ModLanguageEnUsProvider extends LanguageProviderHelper {
     void blocks() {
         this.addBlock(MineArcanaBlocks.ARCANA_CAULDRON, "Cauldron");
         this.addBlock(MineArcanaBlocks.ASPECT_EXTRACTOR, "Aspect Extractor");
-        this.addBlock(MineArcanaBlocks.ASPECT_CONDENSER, "Aspect Condenser");
         this.addBlock(MineArcanaBlocks.ASPECT_MIXER, "Aspect Mixer");
         this.addBlock(MineArcanaBlocks.ASPECT_TANK, "Aspect Tank");
+        this.addBlock(MineArcanaBlocks.ASPECT_PIPE, "Aspect Pipe");
     }
 
     @Override

@@ -26,9 +26,9 @@ public class MineArcanaBlocks {
 
     public static final Supplier<Block> ARCANA_CAULDRON = createBlock("cauldron", ArcanaCauldronBlock::new);
     public static final Supplier<Block> ASPECT_EXTRACTOR = createBlock("aspect_extractor", AspectExtractorBlock::new);
-    public static final Supplier<Block> ASPECT_CONDENSER = createBlock("aspect_condenser", AspectCondenserBlock::new);
     public static final Supplier<Block> ASPECT_MIXER = createBlock("aspect_mixer", AspectMixerBlock::new);
     public static final Supplier<Block> ASPECT_TANK = createBlock("aspect_tank", AspectTankBlock::new);
+    public static final Supplier<Block> ASPECT_PIPE = createBlock("aspect_pipe", AspectPipeBlock::new);
 
     private static Supplier<Block> createBlock(String name) {
         return createBlock(name.toLowerCase(Locale.ROOT), () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));

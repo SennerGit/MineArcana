@@ -3,20 +3,24 @@ package net.sen.minearcana.common.blocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sen.minearcana.common.blocks.entities.AspectTankBlockEntity;
+import net.sen.minearcana.common.registries.MineArcanaBlockEntites;
 import org.jetbrains.annotations.Nullable;
 
 public class AspectTankBlock extends BaseEntityBlock {
     public static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-    public static final MapCodec<ArcanaCauldronBlock> CODEC = simpleCodec(ArcanaCauldronBlock::new);
+    public static final MapCodec<AspectTankBlock> CODEC = simpleCodec(AspectTankBlock::new);
 
     public AspectTankBlock() {
         super(BlockBehaviour.Properties.of());
@@ -46,4 +50,14 @@ public class AspectTankBlock extends BaseEntityBlock {
     public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new AspectTankBlockEntity(pos, state);
     }
+
+//    @Override
+//    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+//        return createAspectTankTicker(level, blockEntityType, MineArcanaBlockEntites.ASPECT_TANK.get());
+//    }
+//
+//    @javax.annotation.Nullable
+//    protected static <T extends BlockEntity> BlockEntityTicker<T> createAspectTankTicker(Level level, BlockEntityType<T> serverType, BlockEntityType<? extends AspectTankBlockEntity> clientType) {
+//        return level.isClientSide ? null : createTickerHelper(serverType, clientType, AspectTankBlockEntity::serverTicker);
+//    }
 }

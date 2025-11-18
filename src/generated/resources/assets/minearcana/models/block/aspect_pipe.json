@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minearcana:block/aspect_condenser"
+    "all": "minearcana:block/aspect_pipe"
   }
 }

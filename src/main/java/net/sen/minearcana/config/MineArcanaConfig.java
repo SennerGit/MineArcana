@@ -28,8 +28,8 @@ public class MineArcanaConfig {
             builder.push("cauldron");
                 builder.comment("List of allowed cauldron fluids and their temperature properties");
                 fluidEntries = builder.defineList("fluids", List.of(
-                        addCauldronFluid(Fluids.WATER, 25, 100, 100),
-                        addCauldronFluid(Fluids.LAVA, 1200, 1200, 1200)
+                        addCauldronFluid(Fluids.WATER, 25, 100),
+                        addCauldronFluid(Fluids.LAVA, 1200, 1200)
                 ), o -> o instanceof String);
 
                 builder.comment("List of heat sources and their output levels");
@@ -43,10 +43,10 @@ public class MineArcanaConfig {
             builder.build();
         }
 
-        private static String addCauldronFluid(Fluid fluid, int baseTemp, int minTemp, int maxTemp) {
+        private static String addCauldronFluid(Fluid fluid, int baseTemp, int maxTemp) {
             ResourceLocation id = BuiltInRegistries.FLUID.getKey(fluid);
             if (id == null) id = ResourceLocation.fromNamespaceAndPath("minecraft", "empty");
-            return String.format("%s,%d,%d,%d", id.toString(), baseTemp, minTemp, maxTemp);
+            return String.format("%s,%d,%d", id.toString(), baseTemp, maxTemp);
         }
 
         private static String addCauldronHeatSource(Block block, int heatLevel) {

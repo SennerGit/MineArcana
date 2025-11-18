@@ -17,9 +17,13 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.sen.minearcana.MineArcana;
+import net.sen.minearcana.common.recipes.AspectRequirement;
+import net.sen.minearcana.common.registries.MineArcanaRegistries;
 import net.sen.minearcana.common.utils.ModUtils;
 import net.sen.minearcana.common.utils.aspect.AspectStack;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.CompletableFuture;
@@ -355,17 +359,16 @@ public abstract class ModRecipeHelper extends RecipeProvider {
         ItemStack outputPotion = new ItemStack(Items.POTION);
         outputPotion.set(DataComponents.POTION_CONTENTS, new PotionContents(result));
 
-        // Use the GLASS_BOTTLE as the input item (or whatever ingredient you want)
-        ItemLike input = Items.GLASS_BOTTLE;
+        List<AspectRequirement> aspectRequirements = Arrays.stream(aspectStacks).map(as -> new AspectRequirement(MineArcanaRegistries.ASPECT.getKey(as.getAspect()), as.getAmount())).toList();
 
+        // Correct parameter order
         ArcanaCauldronRecipeBuilder.brewing(
-                        input,                    // ItemLike input
-                        1,                        // Count
-                        outputPotion,             // RESULT item — ItemStack
-                        fluidStack,               // Required fluid in cauldron
-                        temperature,              // Required temp
-                        List.of(aspectStacks),    // Aspects
-                        20f                       // XP
+                        outputPotion,                 // ItemLike input
+                        1,                     // Count
+                        fluidStack,            // Required fluid
+                        temperature,           // Required temperature
+                        aspectRequirements, // Aspects
+                        20f                    // XP
                 )
                 .unlockedBy("has_aspect", has(Items.GLASS_BOTTLE))
                 .save(

@@ -8,6 +8,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sen.minearcana.MineArcana;
 import net.sen.minearcana.common.recipes.ArcanaCauldronRecipe;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class MineArcanaRecipes {

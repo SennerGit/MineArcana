@@ -1,8 +1,8 @@
 package net.sen.minearcana.compat;
 
-import net.sen.minearcana.common.blocks.ArcanaCauldronBlock;
-import net.sen.minearcana.common.blocks.entities.ArcanaCauldronBlockEntity;
-import net.sen.minearcana.compat.waila.ArcanaCauldronComponentProvider;
+import net.sen.minearcana.common.blocks.*;
+import net.sen.minearcana.common.blocks.entities.*;
+import net.sen.minearcana.compat.waila.*;
 import snownee.jade.api.*;
 
 @WailaPlugin
@@ -10,10 +10,14 @@ public class MineArcanaWaila implements IWailaPlugin {
     @Override
     public void register(IWailaCommonRegistration registration) {
         registration.registerBlockDataProvider(ArcanaCauldronComponentProvider.INSTANCE, ArcanaCauldronBlockEntity.class);
+        registration.registerBlockDataProvider(AspectExtractorComponentProvider.INSTANCE, AspectExtractorBlockEntity.class);
+        registration.registerBlockDataProvider(AspectTankComponentProvider.INSTANCE, AspectTankBlock.class);
     }
 
     @Override
     public void registerClient(IWailaClientRegistration registration) {
         registration.registerBlockComponent(ArcanaCauldronComponentProvider.INSTANCE, ArcanaCauldronBlock.class);
+        registration.registerBlockComponent(AspectExtractorComponentProvider.INSTANCE, AspectExtractorBlock.class);
+        registration.registerBlockComponent(AspectTankComponentProvider.INSTANCE, AspectTankBlock.class);
     }
 }
