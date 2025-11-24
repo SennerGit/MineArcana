@@ -5,16 +5,28 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.sen.minearcana.common.utils.ModUtils;
 
 import java.util.List;
 
 public class MineArcanaPlacedFeatures {
+    public static final ResourceKey<PlacedFeature> ARCANA_CRYSTAL_GEODE_PLACED_KEY = registerKey("arcana_crystal_geode_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+
+        register(context, ARCANA_CRYSTAL_GEODE_PLACED_KEY, configuredFeatures.getOrThrow(MineArcanaConfiguredFeatures.ARCANA_CRYSTAL_GEODE_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(24),
+                        InSquarePlacement.spread(),
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(30)),
+                        BiomeFilter.biome()
+                )
+        );
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

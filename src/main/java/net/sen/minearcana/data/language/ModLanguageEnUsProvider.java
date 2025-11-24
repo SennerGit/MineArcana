@@ -1,10 +1,7 @@
 package net.sen.minearcana.data.language;
 
 import net.minecraft.data.PackOutput;
-import net.sen.minearcana.common.registries.MineArcanaAspects;
-import net.sen.minearcana.common.registries.MineArcanaBlocks;
-import net.sen.minearcana.common.registries.MineArcanaCreativeModeTabs;
-import net.sen.minearcana.common.registries.MineArcanaElements;
+import net.sen.minearcana.common.registries.*;
 
 public class ModLanguageEnUsProvider extends LanguageProviderHelper {
     public ModLanguageEnUsProvider(PackOutput output, String locale) {
@@ -22,10 +19,24 @@ public class ModLanguageEnUsProvider extends LanguageProviderHelper {
         this.addBlock(MineArcanaBlocks.ASPECT_MIXER, "Aspect Mixer");
         this.addBlock(MineArcanaBlocks.ASPECT_TANK, "Aspect Tank");
         this.addBlock(MineArcanaBlocks.ASPECT_PIPE, "Aspect Pipe");
+        this.addBlock(MineArcanaBlocks.ARCANA_BLOCK, "Arcana Block");
+        this.addBlock(MineArcanaBlocks.BUDDING_ARCANA, "Budding Arcana");
+        this.addBlock(MineArcanaBlocks.ARCANA_CLUSTER, "Arcana Cluster");
+        this.addBlock(MineArcanaBlocks.LARGE_ARCANA_BUD, "Large Arcana Bud");
+        this.addBlock(MineArcanaBlocks.MEDIUM_ARCANA_BUD, "Medium Arcana Bud");
+        this.addBlock(MineArcanaBlocks.SMALL_ARCANA_BUD, "Small Arcana Bud");
+        this.addBlock(MineArcanaBlocks.ARCANA_CRYSTAL, "Arcana Crystal");
+        this.addBlock(MineArcanaBlocks.ALTAR_BLOCK, "Altar");
+        this.addBlock(MineArcanaBlocks.ARCANA_LIGHT_EMITTER, "Arcane Light Emitter");
+        this.addBlock(MineArcanaBlocks.ARCANA_LIGHT_RECEIVER, "Arcane Light Receiver");
+        this.addBlock(MineArcanaBlocks.ARCANA_MIRROR, "Mirror");
     }
 
     @Override
     void items() {
+        this.addItem(MineArcanaItems.ARCANE_DUST, "Arcane Dust");
+        this.addItem(MineArcanaItems.ARCANE_SHARD, "Arcane Shard");
+        this.addItem(MineArcanaItems.RITUAL_KNIFE, "Ritual Knife");
     }
 
     @Override

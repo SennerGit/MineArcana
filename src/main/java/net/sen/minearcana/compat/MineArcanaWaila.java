@@ -11,7 +11,9 @@ public class MineArcanaWaila implements IWailaPlugin {
     public void register(IWailaCommonRegistration registration) {
         registration.registerBlockDataProvider(ArcanaCauldronComponentProvider.INSTANCE, ArcanaCauldronBlockEntity.class);
         registration.registerBlockDataProvider(AspectExtractorComponentProvider.INSTANCE, AspectExtractorBlockEntity.class);
-        registration.registerBlockDataProvider(AspectTankComponentProvider.INSTANCE, AspectTankBlock.class);
+        registration.registerBlockDataProvider(AspectTankComponentProvider.INSTANCE, AspectTankBlockEntity.class);
+        registration.registerBlockDataProvider(BloodMarkerComponentProvider.INSTANCE, BloodMarkerBlockEntity.class);
+        registration.registerBlockDataProvider(AltarComponentProvider.INSTANCE, AltarBlockEntity.class);
     }
 
     @Override
@@ -19,5 +21,7 @@ public class MineArcanaWaila implements IWailaPlugin {
         registration.registerBlockComponent(ArcanaCauldronComponentProvider.INSTANCE, ArcanaCauldronBlock.class);
         registration.registerBlockComponent(AspectExtractorComponentProvider.INSTANCE, AspectExtractorBlock.class);
         registration.registerBlockComponent(AspectTankComponentProvider.INSTANCE, AspectTankBlock.class);
+        registration.registerBlockComponent(BloodMarkerComponentProvider.INSTANCE, BloodMarkerBlock.class);
+        registration.registerBlockComponent(AltarComponentProvider.INSTANCE, AltarBlock.class);
     }
 }

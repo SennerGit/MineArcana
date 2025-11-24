@@ -16,6 +16,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sen.minearcana.common.blocks.*;
 import net.sen.minearcana.common.utils.ModUtils;
+import net.sen.minearcana.common.utils.altar.AltarType;
 
 import java.util.Locale;
 import java.util.function.Supplier;
@@ -26,9 +27,26 @@ public class MineArcanaBlocks {
 
     public static final Supplier<Block> ARCANA_CAULDRON = createBlock("cauldron", ArcanaCauldronBlock::new);
     public static final Supplier<Block> ASPECT_EXTRACTOR = createBlock("aspect_extractor", AspectExtractorBlock::new);
-    public static final Supplier<Block> ASPECT_MIXER = createBlock("aspect_mixer", AspectMixerBlock::new);
+    public static final Supplier<Block> ASPECT_MIXER = createBlock("aspect_mixer", AspectMixerBlock::new); //TODO: Make this a functional mixer
     public static final Supplier<Block> ASPECT_TANK = createBlock("aspect_tank", AspectTankBlock::new);
-    public static final Supplier<Block> ASPECT_PIPE = createBlock("aspect_pipe", AspectPipeBlock::new);
+    public static final Supplier<Block> ASPECT_PIPE = createBlock("aspect_pipe", AspectPipeBlock::new); //TODO: Make this a multiblock pipe system
+
+    public static final Supplier<Block> BLOOD_MARKER = createBlockOnly("blood_marker", BloodMarkerBlock::new);
+
+    public static final Supplier<Block> ARCANA_LIGHT_EMITTER = createBlock("arcane_light_emitter", ArcaneLightEmitterBlock::new);
+    public static final Supplier<Block> ARCANA_LIGHT_RECEIVER = createBlock("arcane_light_receiver", ArcaneLightReceiverBlock::new);
+    public static final Supplier<Block> ARCANA_MIRROR = createBlock("arcane_mirror", ArcaneMirrorBlock::new);
+
+    public static final Supplier<Block> ARCANA_CRYSTAL = createBlock("arcana_crystal", ArcanaCrystalBlock::new);
+    public static final Supplier<Block> ARCANA_BLOCK = createBlock("arcana_block");
+    public static final Supplier<Block> ARCANA_CLUSTER = createBlock("arcana_cluster", () -> new CrystalClusterBlock(7.0F, 2.0F, BlockBehaviour.Properties.ofFullCopy(ARCANA_BLOCK.get())));
+    public static final Supplier<Block> LARGE_ARCANA_BUD = createBlock("large_arcana_bud", () -> new CrystalClusterBlock(5.0F, 1.5F, BlockBehaviour.Properties.ofFullCopy(ARCANA_CLUSTER.get()).lightLevel(state -> 2)));
+    public static final Supplier<Block> MEDIUM_ARCANA_BUD = createBlock("medium_arcana_bud", () -> new CrystalClusterBlock(4.0F, 1.0F, BlockBehaviour.Properties.ofFullCopy(ARCANA_CLUSTER.get()).lightLevel(state -> 4)));
+    public static final Supplier<Block> SMALL_ARCANA_BUD = createBlock("small_arcana_bud", () -> new CrystalClusterBlock(3.0F, 0.5F, BlockBehaviour.Properties.ofFullCopy(ARCANA_CLUSTER.get()).lightLevel(state -> 1)));
+    public static final Supplier<Block> BUDDING_ARCANA = createBlock("budding_arcana", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BUDDING_AMETHYST), SMALL_ARCANA_BUD.get(), MEDIUM_ARCANA_BUD.get(), LARGE_ARCANA_BUD.get(), ARCANA_CLUSTER.get()));
+    public static final Supplier<Block> ARCANA_MARKER = createBlockOnly("arcana_marker", ArcanaMarkerBlock::new);
+
+    public static final Supplier<Block> ALTAR_BLOCK = createBlock("altar_block", AltarBlock::new);
 
     private static Supplier<Block> createBlock(String name) {
         return createBlock(name.toLowerCase(Locale.ROOT), () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
@@ -172,6 +190,11 @@ public class MineArcanaBlocks {
     private static <T extends Block> Supplier<T> createBlock(String name, Supplier<T> block) {
         Supplier<T> toReturn = BLOCKS.register(name.toLowerCase(Locale.ROOT), block);
         createBlockItem(name.toLowerCase(Locale.ROOT), toReturn);
+        return toReturn;
+    }
+
+    private static <T extends Block> Supplier<T> createBlockOnly(String name, Supplier<T> block) {
+        Supplier<T> toReturn = BLOCKS.register(name.toLowerCase(Locale.ROOT), block);
         return toReturn;
     }
 

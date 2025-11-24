@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minearcana:arcane_dust"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "AAA",
+    "III"
+  ],
+  "result": {
+    "count": 12,
+    "id": "minearcana:aspect_pipe"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_arcane_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minearcana:arcane_dust"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minearcana:aspect_pipe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_arcane_dust"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minearcana:aspect_pipe"
+    ]
+  }
+}

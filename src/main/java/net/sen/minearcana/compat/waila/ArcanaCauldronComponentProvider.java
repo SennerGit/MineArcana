@@ -29,7 +29,7 @@ public enum ArcanaCauldronComponentProvider implements IBlockComponentProvider, 
         CompoundTag serverData = accessor.getServerData();
 
         // --- Fluid info ---
-        if (serverData.contains("Fluid")) {
+        if (serverData.contains(FLUID_TAG)) {
             FluidStack fluid = FluidStack.parseOptional(accessor.getLevel().registryAccess(), serverData.getCompound(FLUID_TAG));
             tooltip.add(Component.literal("Fluid: " + fluid.getHoverName().getString() + " (" + fluid.getAmount() + "mb)"));
         } else {

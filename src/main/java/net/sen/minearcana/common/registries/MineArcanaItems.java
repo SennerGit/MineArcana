@@ -10,6 +10,8 @@ import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.sen.minearcana.common.items.ArcanaDustItem;
+import net.sen.minearcana.common.items.RitualKnifeItem;
 import net.sen.minearcana.common.utils.ModUtils;
 
 import java.util.Locale;
@@ -17,6 +19,11 @@ import java.util.function.Supplier;
 
 public class MineArcanaItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ModUtils.getModId());
+
+    public static final Supplier<Item> RITUAL_KNIFE = createItem("ritual_knife", RitualKnifeItem::new);
+
+    public static final Supplier<Item> ARCANE_SHARD = createItem("arcane_shard");
+    public static final Supplier<Item> ARCANE_DUST = createItem("arcane_dust", ArcanaDustItem::new);
 
     private static Supplier<Item> createItem(String name) {
         return ITEMS.register(name, () -> new Item(new Item.Properties()));

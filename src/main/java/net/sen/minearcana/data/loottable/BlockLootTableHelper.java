@@ -183,6 +183,17 @@ public abstract class BlockLootTableHelper extends BlockLootSubProvider {
         super.dropWhenSilkTouch(block.get());
     }
 
+    protected void dropArcanaCluster(Supplier<? extends Block> cluster, Supplier<? extends Item> shardItem, int amountMin, int amountMax) {
+        this.add(cluster.get(), block -> createSilkTouchDispatchTable(
+                block,
+                applyExplosionDecay(block,
+                        LootItem.lootTableItem(shardItem.get())
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(amountMin, amountMax)))
+                                .apply(ApplyBonusCount.addOreBonusCount(this.registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE)))
+                )
+        ));
+    }
+
     protected void dropWithSilk(Supplier<? extends Block> block, Supplier<? extends ItemLike> drop) {
         add(block.get(), (result) -> createSingleItemTableWithSilkTouch(result, drop.get()));
     }

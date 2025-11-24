@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_sword"
+    },
+    {
+      "item": "minearcana:arcane_dust"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minearcana:ritual_knife"
+  }
+}

@@ -1,3 +1,13 @@
-// 1.21.1	2025-11-17T13:59:53.5456804	Recipes
+// 1.21.1	2025-11-19T06:18:27.0107774	Recipes
 8403e88b59f9a2e0eb01f8f359edbf8eec50afe5 data/minearcana/advancement/recipes/brewing/brewing/regeneration.json
+e0ade7508cefe3b18496abed58ea1acdd22b8e7a data/minearcana/advancement/recipes/misc/arcana_cauldron.json
+e947ba7cf291b2a93e227e01b1b098e129690a39 data/minearcana/advancement/recipes/misc/aspect_extractor.json
+619dd01979b130d2cce14bf918029bfae68833a1 data/minearcana/advancement/recipes/misc/aspect_pipe.json
+75049b4ec26e0745cd405369bda5f3ccfc7f5803 data/minearcana/advancement/recipes/misc/aspect_tank.json
+5600d4bd3fb201dd5326f488a49dbd32a308f84d data/minearcana/advancement/recipes/tools/ritual_knife_from_iron_sword.json
+11b9e1284d7ee148a783f5012715c4930ac076a1 data/minearcana/recipe/arcana_cauldron.json
+3699c23bd484bdc9e893731eae7d9a2973b0a141 data/minearcana/recipe/aspect_extractor.json
+a5dd4d40ebde9b22c05e19db1edd48e5cf274efc data/minearcana/recipe/aspect_pipe.json
+1e856679cd67d12e477154da55efd3f567d06358 data/minearcana/recipe/aspect_tank.json
 115c1699b5e922d74e8035bb3bfb22805aa1dada data/minearcana/recipe/brewing/regeneration.json
+e2c8342f1c35f2bf3d7560a31ccfee0ad9f3086e data/minearcana/recipe/ritual_knife_from_iron_sword.json

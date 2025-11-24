@@ -16,6 +16,7 @@ import java.util.Locale;
 
 import static net.sen.minearcana.common.registries.MineArcanaEntityTypes.SPAWN_EGGS;
 import static net.sen.minearcana.common.registries.MineArcanaBlocks.*;
+import static net.sen.minearcana.common.registries.MineArcanaItems.*;
 
 public class MineArcanaCreativeModeTabs {
     private static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ModUtils.getModId());
@@ -30,6 +31,23 @@ public class MineArcanaCreativeModeTabs {
                         output.accept(ASPECT_MIXER.get());
                         output.accept(ASPECT_TANK.get());
                         output.accept(ASPECT_PIPE.get());
+                        output.accept(RITUAL_KNIFE.get());
+
+                        output.accept(ALTAR_BLOCK.get());
+
+                        output.accept(ARCANA_LIGHT_EMITTER.get());
+                        output.accept(ARCANA_LIGHT_RECEIVER.get());
+                        output.accept(ARCANA_MIRROR.get());
+
+                        output.accept(ARCANE_SHARD.get());
+                        output.accept(ARCANE_DUST.get());
+                        output.accept(ARCANA_CRYSTAL.get());
+                        output.accept(ARCANA_BLOCK.get());
+                        output.accept(BUDDING_ARCANA.get());
+                        output.accept(ARCANA_CLUSTER.get());
+                        output.accept(LARGE_ARCANA_BUD.get());
+                        output.accept(MEDIUM_ARCANA_BUD.get());
+                        output.accept(SMALL_ARCANA_BUD.get());
 
                         //Generated Lists
                         createSpawnEggsAlphabetical(output);

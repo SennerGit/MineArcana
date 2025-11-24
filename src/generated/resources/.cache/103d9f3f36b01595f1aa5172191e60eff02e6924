@@ -1,1 +1,4 @@
-// 1.21.1	2025-11-09T14:20:06.9638336	Registries
+// 1.21.1	2025-11-21T18:41:07.8663121	Registries
+98a6acca4a39f13630aad0f9ba33d606456d6925 data/minearcana/neoforge/biome_modifier/add_arcana_geode.json
+823d9a068f9a68f25fa25e14df8ce5a3ebdc01c8 data/minearcana/worldgen/configured_feature/arcana_crystal_geode.json
+eaec3c1089db82ca57b5e123f10fd8009c1667b1 data/minearcana/worldgen/placed_feature/arcana_crystal_geode_placed.json

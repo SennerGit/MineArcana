@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-16T07:41:58.2921618	Magic Aspect Data Provider for minearcana
+// 1.21.1	2025-11-19T06:18:27.0092591	Magic Aspect Data Provider for minearcana
 616b3f32d846fb89b3b9c45133842464649b71c5 data/minearcana/magic_aspects/astral.json
 a828b51c28fb9fae936f0fad95006509bd9071ac data/minearcana/magic_aspects/crystal.json
 e5b496b39c75b9c8adb72740db8329cc98b31ca4 data/minearcana/magic_aspects/death.json
@@ -10,7 +10,7 @@ caa8debaa32dc8181a7f544293ffc709d6018834 data/minearcana/magic_aspects/earth.jso
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minearcana/magic_aspects/fury.json
 7b68b4f06521272de729035d5c85c8c31b82b311 data/minearcana/magic_aspects/gravity.json
 04e1d3939373507a607e4d09c80798186e36954a data/minearcana/magic_aspects/infernal.json
-26f6bae24d45b7958d2ed9832170f05ded26ca79 data/minearcana/magic_aspects/judgment.json
+d6a93b7ec50c6f7517552c8bd6364e651737ec76 data/minearcana/magic_aspects/judgment.json
 bf0be45df1e38982a1ce77e0227aea333a60b058 data/minearcana/magic_aspects/life.json
 6f7bd717fec8bd77507158c8d2e7cb8acb40b8e5 data/minearcana/magic_aspects/limbo.json
 e9cd9c8d55f0106a14a578713c0da53c4058c2fa data/minearcana/magic_aspects/mechanical.json
@@ -23,5 +23,5 @@ f8b107ff5e2a1a59f65ec46dedcea5980e13ba06 data/minearcana/magic_aspects/taint.jso
 f6b743f99e7853e77d33e92b00c53a9c74a07704 data/minearcana/tags/item/element/chaos.json
 894280a0b75ebf2ebf74a8f2e6f23317e07ebb26 data/minearcana/tags/item/element/cosmic.json
 fc7b340151ef1b8bf4d745ddc339ebf1e9b09f4d data/minearcana/tags/item/element/creation.json
-158b68a248e1e9f8f81414f4516c4ac4707b65b9 data/minearcana/tags/item/element/order.json
+528c75d3e3753f7140401262f12d0b4fa3d88dd8 data/minearcana/tags/item/element/order.json
 b9997d5c260464fa1877cafe07f987b38ff3775e data/minearcana/tags/item/element/spirit.json

@@ -12,6 +12,7 @@ import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.sen.minearcana.MineArcana;
 import net.sen.minearcana.common.utils.ModUtils;
 
 import java.util.Locale;
@@ -39,12 +40,40 @@ public abstract class ModBlockStateHelper extends BlockStateProvider {
         simpleBlock(blockRegistryObject.get());
     }
 
+    protected void flatBlock(Supplier<Block> blockSupplier) {
+        Block block = blockSupplier.get();
+        String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
+
+        simpleBlock(block,
+                models().singleTexture(
+                        name,
+                        ResourceLocation.fromNamespaceAndPath("minecraft", "block/carpet"),
+                        "wool",
+                        ResourceLocation.fromNamespaceAndPath(MineArcana.MODID, "block/" + name)
+                )
+        );
+    }
+
     protected void blockItem(Supplier<?> blockRegistryObject, String appendix) {
         simpleBlockItem((Block) blockRegistryObject.get(), new ModelFile.UncheckedModelFile(ModUtils.getModPath("block/" + ModUtils.getBlockId((Block) blockRegistryObject.get()) + appendix)));
     }
 
     protected void blockWithItem(Supplier<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
+    protected void blockCrystalCluster(Supplier<Block> blockSupplier) {
+        Block block = blockSupplier.get();
+        String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
+
+        simpleBlockWithItem(block,
+                models().singleTexture(
+                        name,
+                        ResourceLocation.fromNamespaceAndPath("minecraft", "block/cross"),
+                        "cross",
+                        ResourceLocation.fromNamespaceAndPath(MineArcana.MODID, "block/" + name)
+                )
+        );
     }
 
     protected void colouredBlockWithItem(DeferredBlock<Block> blockRegistryObject) {

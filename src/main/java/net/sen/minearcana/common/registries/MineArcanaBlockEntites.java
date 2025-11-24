@@ -21,6 +21,10 @@ public class MineArcanaBlockEntites {
     public static final Supplier<BlockEntityType<AspectMixerBlockEntity>> ASPECT_MIXER = createBlockEntity("aspect_mixer", AspectMixerBlockEntity::new, MineArcanaBlocks.ASPECT_MIXER);
     public static final Supplier<BlockEntityType<AspectTankBlockEntity>> ASPECT_TANK = createBlockEntity("aspect_tank", AspectTankBlockEntity::new, MineArcanaBlocks.ASPECT_TANK);
     public static final Supplier<BlockEntityType<AspectPipeBlockEntity>> ASPECT_PIPE = createBlockEntity("aspect_pipe", AspectPipeBlockEntity::new, MineArcanaBlocks.ASPECT_PIPE);
+    public static final Supplier<BlockEntityType<BloodMarkerBlockEntity>> BLOOD_MARKER = createBlockEntity("blood_marker", BloodMarkerBlockEntity::new, MineArcanaBlocks.BLOOD_MARKER);
+    public static final Supplier<BlockEntityType<AltarBlockEntity>> ALTAR_BLOCK = createBlockEntity("altar_block", AltarBlockEntity::new, MineArcanaBlocks.ALTAR_BLOCK);
+    public static final Supplier<BlockEntityType<ArcaneLightEmitterBlockEntity>> ARCANA_LIGHT_EMITTER = createBlockEntity("arcane_light_emitter", ArcaneLightEmitterBlockEntity::new, MineArcanaBlocks.ARCANA_LIGHT_EMITTER);
+    public static final Supplier<BlockEntityType<ArcaneLightReceiverBlockEntity>> ARCANA_LIGHT_RECEIVER = createBlockEntity("arcane_light_receiver", ArcaneLightReceiverBlockEntity::new, MineArcanaBlocks.ARCANA_LIGHT_RECEIVER);
 
     @SuppressWarnings("DataFlowIssue")
     private static <T extends BlockEntity> Supplier<BlockEntityType<T>> createBlockEntity(String name, BlockEntityType.BlockEntitySupplier<T> supplier, Collection<? extends Supplier<? extends Block>> blocks) {

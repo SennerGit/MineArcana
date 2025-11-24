@@ -1,5 +1,6 @@
 package net.sen.minearcana.client.event;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -8,9 +9,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
+import net.sen.minearcana.client.renderer.BeamWorldRenderer;
+import net.sen.minearcana.common.utils.lightbeams.BeamEngine;
 import net.sen.minearcana.data.aspects.MagicAspectDataLoader;
 
 import java.util.*;
@@ -20,6 +25,7 @@ public class MineArcanaClientEventHandler {
     public static void MineArcanaClientEventHandlerRegistry(IEventBus bus) {
         // Tooltip listener
         NeoForge.EVENT_BUS.addListener(MineArcanaClientEventHandler::onToolTip);
+        NeoForge.EVENT_BUS.addListener(MineArcanaClientEventHandler::onRenderWorld);
     }
 
     // ------------------- Tooltip -------------------
@@ -103,4 +109,14 @@ public class MineArcanaClientEventHandler {
         });
     }
 
+    // ------------------- Render -------------------
+    public static void onRenderWorld(RenderLevelStageEvent event) {
+        BeamWorldRenderer.onRenderWorld(event);
+
+        Minecraft mc = Minecraft.getInstance();
+        Level level = mc.level;
+        if (mc.level != null) {
+            BeamEngine.getClient(level).tick();
+        }
+    }
 }

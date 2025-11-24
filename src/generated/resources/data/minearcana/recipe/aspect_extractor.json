@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minearcana:arcane_dust"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "IAI",
+    "AFA",
+    "IAI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minearcana:aspect_extractor"
+  }
+}

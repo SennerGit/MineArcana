@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "minearcana:block/large_arcana_bud"
+  }
+}

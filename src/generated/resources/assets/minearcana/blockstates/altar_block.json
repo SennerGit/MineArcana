@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "minearcana:block/altar_block"
+    }
+  }
+}

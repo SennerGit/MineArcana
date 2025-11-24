@@ -51,6 +51,10 @@
     {
       "item": "minecraft:shield",
       "value": 2
+    },
+    {
+      "item": "minearcana:ritual_knife",
+      "value": 2
     }
   ]
 }

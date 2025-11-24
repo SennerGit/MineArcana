@@ -17,5 +17,23 @@ public class ModBlockStateProvider extends ModBlockStateHelper {
         this.blockWithItem(ASPECT_MIXER);
         this.blockWithItem(ASPECT_TANK);
         this.blockWithItem(ASPECT_PIPE);
+
+        this.blockWithItem(ARCANA_LIGHT_EMITTER);
+        this.blockWithItem(ARCANA_LIGHT_RECEIVER);
+        this.blockWithItem(ARCANA_MIRROR);
+
+        this.blockWithItem(ALTAR_BLOCK);
+
+        this.flatBlock(BLOOD_MARKER);
+
+        this.blockWithItem(ARCANA_CRYSTAL);
+        this.blockWithItem(ARCANA_BLOCK);
+        this.blockWithItem(BUDDING_ARCANA);
+        this.blockCrystalCluster(ARCANA_CLUSTER);
+        this.blockCrystalCluster(LARGE_ARCANA_BUD);
+        this.blockCrystalCluster(MEDIUM_ARCANA_BUD);
+        this.blockCrystalCluster(SMALL_ARCANA_BUD);
+
+        this.flatBlock(ARCANA_MARKER);
     }
 }

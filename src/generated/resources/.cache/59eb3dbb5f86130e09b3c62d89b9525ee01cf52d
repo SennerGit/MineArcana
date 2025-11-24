@@ -1,6 +1,16 @@
-// 1.21.1	2025-11-18T12:59:24.1100151	Loot Tables
+// 1.21.1	2025-11-24T18:31:15.1568653	Loot Tables
+61849d8958d1109b7fb9149bc4df9ede32d4f916 data/minearcana/loot_table/blocks/altar_block.json
+037768c1a8b04db062f7490b7f9746cf3d44cba5 data/minearcana/loot_table/blocks/arcana_block.json
+24059369aa3d754e111a69f90da3e60da10b7f90 data/minearcana/loot_table/blocks/arcana_cluster.json
+8bdb8a0759efdad4055c8d2dcb8f65aed491b3d8 data/minearcana/loot_table/blocks/arcana_crystal.json
+c7dd37619e219d48913d2d2082cd4e7dda26d428 data/minearcana/loot_table/blocks/arcane_light_emitter.json
+ca52eceaf00c64bceeff43c4fd25a04baab4ac29 data/minearcana/loot_table/blocks/arcane_light_receiver.json
+f3e83a7b3e622cf7ddc3da103705b8f72c0aea42 data/minearcana/loot_table/blocks/arcane_mirror.json
 410b458ea7b214fb5622f6edf4155708c7a25c43 data/minearcana/loot_table/blocks/aspect_extractor.json
 a98443031daa3b95d9054bf0cf8f82fab4986cf8 data/minearcana/loot_table/blocks/aspect_mixer.json
 937ab53563df331973f34236d9f3609a73679e44 data/minearcana/loot_table/blocks/aspect_pipe.json
 e5c9e3ac593cfb0f38fd68589470ee186bb1dece data/minearcana/loot_table/blocks/aspect_tank.json
 2282d281a180732279abd93f3a7aaa6c7c1a0253 data/minearcana/loot_table/blocks/cauldron.json
+51205b9dc8957b8df57899e86d9ef3800ba2db12 data/minearcana/loot_table/blocks/large_arcana_bud.json
+10195305b04d9f6eb477c171360178270070344c data/minearcana/loot_table/blocks/medium_arcana_bud.json
+0870b3296b04c5760da0b6fcc7741bf3d418bfed data/minearcana/loot_table/blocks/small_arcana_bud.json

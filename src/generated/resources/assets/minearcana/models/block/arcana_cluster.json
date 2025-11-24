@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "minearcana:block/arcana_cluster"
+  }
+}

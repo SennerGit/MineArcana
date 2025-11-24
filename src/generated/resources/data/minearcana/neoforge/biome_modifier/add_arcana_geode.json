@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "minearcana:arcana_crystal_geode_placed",
+  "step": "local_modifications"
+}

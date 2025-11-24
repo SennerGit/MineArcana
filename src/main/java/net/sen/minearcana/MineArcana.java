@@ -9,6 +9,7 @@ import net.sen.minearcana.client.MineArcanaClient;
 import net.sen.minearcana.client.event.MineArcanaClientEventHandler;
 import net.sen.minearcana.common.event.MineArcanaEventHandler;
 import net.sen.minearcana.common.registries.*;
+import net.sen.minearcana.common.utils.altar.AltarStructureRegistry;
 import net.sen.minearcana.config.MineArcanaConfig;
 import org.slf4j.Logger;
 
@@ -42,6 +43,7 @@ public class MineArcana {
         MineArcanaEntityTypes.register(eventBus);
         MineArcanaCreativeModeTabs.register(eventBus);
         MineArcanaRecipes.register(eventBus);
+        MineArcanaDataComponents.register(eventBus);
 
         //Custom Registries
         MineArcanaElements.register(eventBus);
@@ -63,11 +65,11 @@ public class MineArcana {
 
     private void preInit(FMLCommonSetupEvent event) {
         Reflection.initialize(
-
         );
     }
 
     private void init(FMLCommonSetupEvent event) {
+        event.enqueueWork(AltarStructureRegistry::init);
     }
 
     private void postInit(FMLCommonSetupEvent event) {

@@ -36,22 +36,24 @@ public abstract class ModRecipeHelper extends RecipeProvider {
     @Override
     protected void buildRecipes(RecipeOutput pRecipeOutput) {
         miscRecipes(pRecipeOutput);
-        pestleAndMotarRecipes(pRecipeOutput);
         stoneRecipes(pRecipeOutput);
         foodRecipes(pRecipeOutput);
         metalRecipes(pRecipeOutput);
         woodRecipes(pRecipeOutput);
+        toolsRecipes(pRecipeOutput);
+        machineRecipes(pRecipeOutput);
         flowerRecipes(pRecipeOutput);
         vanilla(pRecipeOutput);
         alchemyRecipes(pRecipeOutput);
     }
 
     abstract void miscRecipes(RecipeOutput pRecipeOutput);
-    abstract void pestleAndMotarRecipes(RecipeOutput pRecipeOutput);
     abstract void stoneRecipes(RecipeOutput pRecipeOutput);
     abstract void foodRecipes(RecipeOutput pRecipeOutput);
     abstract void metalRecipes(RecipeOutput pRecipeOutput);
     abstract void woodRecipes(RecipeOutput pRecipeOutput);
+    abstract void toolsRecipes(RecipeOutput pRecipeOutput);
+    abstract void machineRecipes(RecipeOutput pRecipeOutput);
     abstract void flowerRecipes(RecipeOutput pRecipeOutput);
     abstract void vanilla(RecipeOutput output);
     abstract void alchemyRecipes(RecipeOutput recipeOutput);

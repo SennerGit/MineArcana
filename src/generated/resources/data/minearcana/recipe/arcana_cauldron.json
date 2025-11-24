@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minearcana:arcane_dust"
+    },
+    "C": {
+      "item": "minecraft:cauldron"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ACA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minearcana:cauldron"
+  }
+}
