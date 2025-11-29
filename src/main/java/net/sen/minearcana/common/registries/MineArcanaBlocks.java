@@ -31,6 +31,8 @@ public class MineArcanaBlocks {
     public static final Supplier<Block> ASPECT_TANK = createBlock("aspect_tank", AspectTankBlock::new);
     public static final Supplier<Block> ASPECT_PIPE = createBlock("aspect_pipe", AspectPipeBlock::new); //TODO: Make this a multiblock pipe system
 
+    public static final Supplier<Block> WAND_CRAFTING_STATION = createBlock("wand_crafting_station", WandCraftingStationBlock::new);
+
     public static final Supplier<Block> BLOOD_MARKER = createBlockOnly("blood_marker", BloodMarkerBlock::new);
 
     public static final Supplier<Block> ARCANA_LIGHT_EMITTER = createBlock("arcane_light_emitter", ArcaneLightEmitterBlock::new);

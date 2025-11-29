@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-24T18:31:15.153751	Block States: minearcana
+// 1.21.1	2025-11-26T06:49:03.7479333	Block States: minearcana
 1cc04846dd20d19cd4c9f2ae25e09a8e0b145c58 assets/minearcana/blockstates/altar_block.json
 0ba0922886a5cd81f7c6107d22af3c2e50442e65 assets/minearcana/blockstates/arcana_block.json
 7545789452a720adb13d7123c76069cd4244718a assets/minearcana/blockstates/arcana_cluster.json
@@ -17,6 +17,7 @@ b4b59a8a3eb15a258ffb711920d168b40421eb24 assets/minearcana/blockstates/aspect_mi
 d03910dee4d514bbde41193cf6b0f32286aca9b2 assets/minearcana/blockstates/large_arcana_bud.json
 a425a69206eb2f407efa45415e7ab7d46d5b23d1 assets/minearcana/blockstates/medium_arcana_bud.json
 f479115f86fc6047d4e9b1ae12025a026aa93135 assets/minearcana/blockstates/small_arcana_bud.json
+fc364ad165fc0e5c33deb8345cf7a121856fce6a assets/minearcana/blockstates/wand_crafting_station.json
 7a78e41fec6b0ea07d9242493c16c0e755628d38 assets/minearcana/models/block/altar_block.json
 060e866d006c2d2cef5e25fc965e13cdcc9c45d7 assets/minearcana/models/block/arcana_block.json
 9db6b6c9ce6e7d411366b3f934f0f7a6093dc84e assets/minearcana/models/block/arcana_cluster.json
@@ -35,6 +36,7 @@ cdd37b25b5c5ed32c6cd102a0f2dd25bad287a16 assets/minearcana/models/block/cauldron
 f1afd9f703fea9b6e1ed929d87762ce282618ca7 assets/minearcana/models/block/large_arcana_bud.json
 dc71bbfadbdd0dd44b0ef541af938f2fac0716f4 assets/minearcana/models/block/medium_arcana_bud.json
 1b1f374f692eb8d8295c4d3f71428b722350b9c1 assets/minearcana/models/block/small_arcana_bud.json
+ba2e7c1cb2c4ba52beb1b76420be107e245d1a85 assets/minearcana/models/block/wand_crafting_station.json
 d0c65fc981e5cfa9d4615ee271ab6746a0892927 assets/minearcana/models/item/altar_block.json
 d2cc355fb4e8efb83f826d410a6fbeb7f6286ef4 assets/minearcana/models/item/arcana_block.json
 07f9542ffdfa06dd62554413c61bb63371ff2220 assets/minearcana/models/item/arcana_cluster.json
@@ -51,3 +53,4 @@ adebaefda31dd8d63c75be756d1720341492795f assets/minearcana/models/item/aspect_pi
 868096a3920f2e935e8d093d0172dae1ae088d7b assets/minearcana/models/item/large_arcana_bud.json
 88082cce9072cb5b4724c8bd2a7d22ab104b5bc6 assets/minearcana/models/item/medium_arcana_bud.json
 3cebab95134805e0e7a0f8242f5cb61919c6c85a assets/minearcana/models/item/small_arcana_bud.json
+86ad07892b70651ae05ba01b3effcfeaf07078f2 assets/minearcana/models/item/wand_crafting_station.json

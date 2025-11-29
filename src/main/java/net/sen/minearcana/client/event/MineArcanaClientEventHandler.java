@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
@@ -26,6 +27,7 @@ public class MineArcanaClientEventHandler {
         // Tooltip listener
         NeoForge.EVENT_BUS.addListener(MineArcanaClientEventHandler::onToolTip);
         NeoForge.EVENT_BUS.addListener(MineArcanaClientEventHandler::onRenderWorld);
+        NeoForge.EVENT_BUS.addListener(MineArcanaClientEventHandler::onClientTick);
     }
 
     // ------------------- Tooltip -------------------
@@ -109,13 +111,23 @@ public class MineArcanaClientEventHandler {
         });
     }
 
-    // ------------------- Render -------------------
+    // onRenderWorld
     public static void onRenderWorld(RenderLevelStageEvent event) {
-        BeamWorldRenderer.onRenderWorld(event);
+        if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_PARTICLES) {
+            // Trace beams (tick client engine) before rendering segments:
+            var level = Minecraft.getInstance().level;
+            if (level != null) {
+                BeamEngine.getClient(level).tick();
+            }
 
-        Minecraft mc = Minecraft.getInstance();
-        Level level = mc.level;
-        if (mc.level != null) {
+            BeamWorldRenderer.onRenderWorld(event);
+        }
+    }
+
+    // onClientTick (optional alternative)
+    public static void onClientTick(net.neoforged.neoforge.client.event.ClientTickEvent.Post event) {
+        var level = Minecraft.getInstance().level;
+        if (level != null) {
             BeamEngine.getClient(level).tick();
         }
     }

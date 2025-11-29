@@ -22,6 +22,8 @@ public class ModBlockStateProvider extends ModBlockStateHelper {
         this.blockWithItem(ARCANA_LIGHT_RECEIVER);
         this.blockWithItem(ARCANA_MIRROR);
 
+        this.blockWithItem(WAND_CRAFTING_STATION);
+
         this.blockWithItem(ALTAR_BLOCK);
 
         this.flatBlock(BLOOD_MARKER);

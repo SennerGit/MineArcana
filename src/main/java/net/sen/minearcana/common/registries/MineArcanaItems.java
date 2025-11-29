@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.WallSignBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.sen.minearcana.common.items.ArcanaDustItem;
+import net.sen.minearcana.common.items.ArcanaWandItem;
 import net.sen.minearcana.common.items.RitualKnifeItem;
 import net.sen.minearcana.common.utils.ModUtils;
 
@@ -21,6 +22,8 @@ public class MineArcanaItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ModUtils.getModId());
 
     public static final Supplier<Item> RITUAL_KNIFE = createItem("ritual_knife", RitualKnifeItem::new);
+
+    public static final Supplier<Item> ARCANA_WAND = createItem("arcana_wand", ArcanaWandItem::new);
 
     public static final Supplier<Item> ARCANE_SHARD = createItem("arcane_shard");
     public static final Supplier<Item> ARCANE_DUST = createItem("arcane_dust", ArcanaDustItem::new);

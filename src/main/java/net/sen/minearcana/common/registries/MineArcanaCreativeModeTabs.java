@@ -35,6 +35,8 @@ public class MineArcanaCreativeModeTabs {
 
                         output.accept(ALTAR_BLOCK.get());
 
+                        output.accept(WAND_CRAFTING_STATION.get());
+
                         output.accept(ARCANA_LIGHT_EMITTER.get());
                         output.accept(ARCANA_LIGHT_RECEIVER.get());
                         output.accept(ARCANA_MIRROR.get());

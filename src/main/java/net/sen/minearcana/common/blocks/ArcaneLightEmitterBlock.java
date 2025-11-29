@@ -22,7 +22,6 @@ import net.sen.minearcana.common.registries.MineArcanaBlockEntites;
 import org.jetbrains.annotations.Nullable;
 
 public class ArcaneLightEmitterBlock extends BaseEntityBlock {
-
     public static final MapCodec<ArcaneLightEmitterBlock> CODEC = simpleCodec(ArcaneLightEmitterBlock::new);
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
@@ -56,25 +55,26 @@ public class ArcaneLightEmitterBlock extends BaseEntityBlock {
     }
 
     /**
-     * Redstone update handler — now updates POWERED state automatically.
+     * Called when neighbor changes -> update POWERED and call the BE emit method on both sides.
+     * Note: emit(...) in the BE takes care of client/server behavior.
      */
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos,
                                 Block block, BlockPos fromPos, boolean moving) {
 
-        if (level.isClientSide) return;
-
         int power = level.getBestNeighborSignal(pos);
         boolean currentlyPowered = state.getValue(POWERED);
         boolean shouldBePowered = power > 0;
 
-        // Only update if the state changed
         if (currentlyPowered != shouldBePowered) {
-//            level.setBlock(pos, state.setValue(POWERED, shouldBePowered), Block.UPDATE_ALL);
+            // update the blockstate (use flags = 3 to notify clients)
             level.setBlock(pos, state.setValue(POWERED, shouldBePowered), 3);
+        }
 
+        // Always call emit when the block becomes powered so client visuals can trigger as well.
+        if (shouldBePowered) {
             BlockEntity be = level.getBlockEntity(pos);
-            if (be instanceof ArcaneLightEmitterBlockEntity emitter && shouldBePowered) {
+            if (be instanceof ArcaneLightEmitterBlockEntity emitter) {
                 emitter.emit(power);
             }
         }
@@ -94,6 +94,7 @@ public class ArcaneLightEmitterBlock extends BaseEntityBlock {
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(
             Level level, BlockState state, BlockEntityType<T> type) {
 
+        // we only tick server-side here for server logic; client rendering is handled in client tick/render events
         return level.isClientSide ? null :
                 createTickerHelper(type, MineArcanaBlockEntites.ARCANA_LIGHT_EMITTER.get(),
                         ArcaneLightEmitterBlockEntity::serverTicker);

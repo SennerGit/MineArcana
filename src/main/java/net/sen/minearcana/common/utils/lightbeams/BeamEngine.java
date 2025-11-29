@@ -14,111 +14,114 @@ import net.sen.minearcana.common.blocks.ArcaneMirrorBlock;
 import java.util.*;
 
 /**
- * BeamEngine is responsible for simulating all active beams each tick.
- * On the client it also forwards visible beam segments into BeamRenderCache.
+ * BeamEngine: per-level engine. Use get(level) for server engine,
+ * getClient(level) for client engine.
+ *
+ * Responsibilities:
+ *  - store active beams (server+client)
+ *  - tick beams each tick
+ *  - on client: push visible BeamSegment to BeamRenderCache
+ *
+ * Note: tick() must be called regularly (server tick for server engine; client tick or before render for client).
  */
 public class BeamEngine {
-
-    /** Per-world BeamEngines — server side */
     private static final Map<Level, BeamEngine> INSTANCES = new HashMap<>();
-
-    /** Client-only BeamEngines stored weakly to avoid memory leaks */
     private static final Map<Level, BeamEngine> CLIENT_ENGINES = new WeakHashMap<>();
 
-
-    /** SERVER version */
+    /**
+     * Server-side engine (or authoritative world-side engine).
+     */
     public static BeamEngine get(Level level) {
-        return INSTANCES.computeIfAbsent(level, BeamEngine::new);
+        return INSTANCES.computeIfAbsent(level, l -> new BeamEngine(l, false));
     }
 
-    /** CLIENT version */
+    /**
+     * Client-only engine (keeps beams local for rendering).
+     */
     public static BeamEngine getClient(Level level) {
-        return CLIENT_ENGINES.computeIfAbsent(level, BeamEngine::new);
+        return CLIENT_ENGINES.computeIfAbsent(level, l -> new BeamEngine(l, true));
     }
-
-    // =========================================================
 
     private final Level level;
-    private final List<Beam> activeBeams = new ArrayList<>();
+    private final boolean isClient;
+    private final List<Beam> activeBeams = new ArrayList<>(); // guarded by 'this'
 
-    private BeamEngine(Level level) {
+    private BeamEngine(Level level, boolean isClient) {
         this.level = level;
+        this.isClient = isClient;
     }
 
-    // =========================================================
-    // Public API
-    // =========================================================
-
-    public void addBeam(Beam beam) {
+    /**
+     * Add a beam to be simulated. Safe to call from game threads but avoid calling from other threads.
+     */
+    public synchronized void addBeam(Beam beam) {
         activeBeams.add(beam);
     }
 
-    /** Called every tick */
-    public void tick() {
+    /**
+     * Returns an unmodifiable snapshot of active beams (for debug/inspection).
+     */
+    public synchronized List<Beam> getActiveBeams() {
+        return List.copyOf(activeBeams);
+    }
 
-        // If client: clear old segments before calculating new ones
-        if (level.isClientSide()) {
-            BeamRenderCache.clear(level);
+    /**
+     * Tick the engine. Must be called once per tick.
+     * Client variant clears render cache and pushes segments into BeamRenderCache.
+     */
+    public void tick() {
+        if (isClient) {
+            BeamRenderCache.clear(level); // clear previous frame segments
         }
 
-        Iterator<Beam> iterator = activeBeams.iterator();
-
-        while (iterator.hasNext()) {
-            Beam beam = iterator.next();
-
-            boolean finished = traceBeam(beam);
-
-            if (finished) {
-                iterator.remove();
+        // Iterate via iterator so we can remove safely
+        synchronized (this) {
+            Iterator<Beam> it = activeBeams.iterator();
+            while (it.hasNext()) {
+                Beam b = it.next();
+                boolean finished = traceBeam(b);
+                if (finished) {
+                    it.remove();
+                }
             }
         }
     }
 
-    // =========================================================
-    // Beam simulation core
-    // =========================================================
-
     /**
-     * Traces one beam forward.
+     * Trace a beam forward. Returns true if the beam finished and should be removed.
      *
-     * @return true if the beam is finished and should be removed.
+     * Behavior:
+     *  - steps forward up to maxDistance (1 block per step)
+     *  - client: push segments for rendering
+     *  - mirrors: redirect and continue
+     *  - stained glass: spawn a new coloured beam starting at glass; end this beam
+     *  - receiver: call receiveBeam and end beam
+     *  - solid blocks: stop beam
      */
     private boolean traceBeam(Beam beam) {
-
-        Vec3 currentPos = beam.origin().getCenter();
+        Vec3 pos = beam.getStartVec();
         Vec3 dir = beam.direction().normalize();
 
         for (int step = 0; step < beam.maxDistance(); step++) {
-
-            Vec3 lastPos = currentPos;
-            currentPos = currentPos.add(dir);
-
-            BlockPos blockPos = BlockPos.containing(currentPos);
+            Vec3 prev = pos;
+            pos = pos.add(dir);
+            BlockPos blockPos = BlockPos.containing(pos);
             BlockState state = level.getBlockState(blockPos);
 
-            // CLIENT: store segment for rendering
-            if (level.isClientSide()) {
-                BeamRenderCache.addSegment(
-                        level,
-                        new BeamSegment(lastPos, currentPos, beam.colour())
-                );
+            if (isClient) {
+                // store the segment prev->pos for rendering
+                BeamRenderCache.addSegment(level, new BeamSegment(prev, pos, beam.colour()));
             }
 
-            // -----------------------------------------------------
-            //  MIRROR REDIRECTION
-            // -----------------------------------------------------
+            // Mirror redirect
             if (state.getBlock() instanceof ArcaneMirrorBlock mirror) {
                 dir = mirror.reflect(dir, state);
-                continue; // Continue beam with new direction
+                continue;
             }
 
-            // -----------------------------------------------------
-            //  GLASS — recolour and stop this beam
-            // -----------------------------------------------------
+            // Stained glass — spawn a new beam with new colour at this block, stop this one
             if (state.getBlock() instanceof StainedGlassBlock glass) {
-
                 DyeColor newColour = glass.getColor();
-
                 Beam newBeam = new Beam(
                         beam.level(),
                         blockPos,
@@ -129,28 +132,23 @@ public class BeamEngine {
                         beam.aspect(),
                         beam.createdTick()
                 );
-
                 addBeam(newBeam);
-                return true; // Original beam ends
+                return true;
             }
 
-            // -----------------------------------------------------
-            // RECEIVER HIT — produce redstone signal
-            // -----------------------------------------------------
+            // Receiver — deliver and stop
             if (state.getBlock() instanceof ArcaneLightReceiverBlock receiver) {
                 receiver.receiveBeam(level, blockPos, beam);
                 return true;
             }
 
-            // -----------------------------------------------------
-            // SOLID BLOCK — stop
-            // -----------------------------------------------------
+            // Solid block stops the beam
             if (state.isSolid()) {
                 return true;
             }
         }
 
-        // Beam reached maxDistance naturally
+        // reached max distance
         return true;
     }
 }

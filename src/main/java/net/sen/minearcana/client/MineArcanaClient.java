@@ -7,6 +7,8 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.sen.minearcana.MineArcana;
+import net.sen.minearcana.client.screens.*;
+import net.sen.minearcana.common.registries.*;
 
 @Mod(value = MineArcana.MODID, dist = Dist.CLIENT)
 public class MineArcanaClient {
@@ -14,7 +16,7 @@ public class MineArcanaClient {
 //        eventBus.addListener(MineArcanaClient::onClientSetup);
 //        eventBus.addListener(MineArcanaClient::renderEntities);
 //        eventBus.addListener(MineArcanaClient::registerLayer);
-//        eventBus.addListener(MineArcanaClient::registerScreens);
+        eventBus.addListener(MineArcanaClient::registerScreens);
     }
 
     public static void onClientSetup(FMLClientSetupEvent event)
@@ -30,5 +32,6 @@ public class MineArcanaClient {
     }
 
     public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(MineArcanaMenuTypes.WAND_CRAFTING_STATION_MENU.get(), WandCraftingStationScreen::new);
     }
 }

@@ -30,6 +30,7 @@ public class ModLanguageEnUsProvider extends LanguageProviderHelper {
         this.addBlock(MineArcanaBlocks.ARCANA_LIGHT_EMITTER, "Arcane Light Emitter");
         this.addBlock(MineArcanaBlocks.ARCANA_LIGHT_RECEIVER, "Arcane Light Receiver");
         this.addBlock(MineArcanaBlocks.ARCANA_MIRROR, "Mirror");
+        this.addBlock(MineArcanaBlocks.WAND_CRAFTING_STATION, "Wand Crafting Station");
     }
 
     @Override
@@ -37,6 +38,7 @@ public class ModLanguageEnUsProvider extends LanguageProviderHelper {
         this.addItem(MineArcanaItems.ARCANE_DUST, "Arcane Dust");
         this.addItem(MineArcanaItems.ARCANE_SHARD, "Arcane Shard");
         this.addItem(MineArcanaItems.RITUAL_KNIFE, "Ritual Knife");
+        this.addItem(MineArcanaItems.ARCANA_WAND, "Arcana Wand");
     }
 
     @Override

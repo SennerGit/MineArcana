@@ -44,6 +44,7 @@ public class MineArcana {
         MineArcanaCreativeModeTabs.register(eventBus);
         MineArcanaRecipes.register(eventBus);
         MineArcanaDataComponents.register(eventBus);
+        MineArcanaMenuTypes.register(eventBus);
 
         //Custom Registries
         MineArcanaElements.register(eventBus);

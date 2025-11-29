@@ -4,26 +4,31 @@ import net.minecraft.world.level.Level;
 
 import java.util.*;
 
-public class BeamRenderCache {
-
+/**
+ * Client-side per-level cache of BeamSegments produced by the client BeamEngine.
+ * The renderer should call BeamRenderCache.getSegments(level) each frame and iterate
+ * over the returned list to draw beam quads/lines.
+ *
+ * We return copies to protect internal storage from concurrent modification by the renderer.
+ */
+public final class BeamRenderCache {
     private static final Map<Level, List<BeamSegment>> CACHE = new WeakHashMap<>();
 
-    /** Clears all segments for the given level */
+    private BeamRenderCache() {}
+
     public static void clear(Level level) {
         List<BeamSegment> list = CACHE.get(level);
-        if (list != null) {
-            list.clear();
-        }
+        if (list != null) list.clear();
     }
 
-    /** Add a segment to the level cache */
     public static void addSegment(Level level, BeamSegment segment) {
         CACHE.computeIfAbsent(level, l -> new ArrayList<>()).add(segment);
     }
 
-    /** Get all segments for a level */
+    /**
+     * Returns a copy of the segment list for the given level (safe for iteration).
+     */
     public static List<BeamSegment> getSegments(Level level) {
-        // Return a *copy* so the renderer cannot break the internal cache
         return new ArrayList<>(CACHE.getOrDefault(level, Collections.emptyList()));
     }
 }

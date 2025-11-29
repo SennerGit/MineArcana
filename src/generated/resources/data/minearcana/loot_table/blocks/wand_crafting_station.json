@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minearcana:arcane_mirror"
+          "name": "minecraft:air"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "minearcana:blocks/arcane_mirror"
+  "random_sequence": "minearcana:blocks/wand_crafting_station"
 }

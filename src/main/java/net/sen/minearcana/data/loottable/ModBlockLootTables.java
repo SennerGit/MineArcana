@@ -28,6 +28,8 @@ public class ModBlockLootTables extends BlockLootTableHelper {
         this.dropSelf(ARCANA_LIGHT_RECEIVER);
         this.dropSelf(ARCANA_MIRROR);
 
+        this.dropSelf(WAND_CRAFTING_STATION);
+
         this.dropSelf(ALTAR_BLOCK);
 
         this.dropWhenSilkTouch(ARCANA_CRYSTAL.get());
